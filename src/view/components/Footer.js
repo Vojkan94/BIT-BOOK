@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="card bg-dark fixed-bottom">
-            <div className="card-body container text-light">
-                {new Date().getFullYear()} © Copyright TIM^2
+        <footer className="bg-dark footer">
+            <div className="container pt-3 pb-3">
+                <span class="text-muted">{new Date().getFullYear()} © Copyright TIM^2</span>
             </div>
-        </div>
+        </footer>
     );
 }
 export default Footer
