@@ -6,7 +6,7 @@ const Main = () => {
     return (
         <main className="container mt-5">
             <Switch>
-                <Route path="/post/:postId" component={SinglePost} />
+                <Route path="/post/:type/:postId" component={SinglePost} />
                 <Route path="/" component={PostList} />
             </Switch>
         </main>

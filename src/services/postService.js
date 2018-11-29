@@ -34,6 +34,25 @@ class PostService {
             }))
     }
 
+    fetchSinglePost(type, postId) {
+        return apiService('GET', `${type}/${postId}`)
+            .then((postObj) => {
+                const { videoUrl, text, imageUrl, id, dateCreated, userId, userDisplayName, type, commentsNum } = postObj;
+                let content;
+                if (videoUrl) {
+                    content = videoUrl;
+                }
+                if (text) {
+                    content = text;
+                }
+                if (imageUrl) {
+                    content = imageUrl;
+                }
+
+                return new Post(content, id, dateCreated, userId, userDisplayName, type, commentsNum);
+            })
+    }
+
     fetchComments(postId) {
         return apiService('GET', `comments?postId=${postId}`)
             .then((commentObj) => {

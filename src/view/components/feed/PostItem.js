@@ -8,13 +8,16 @@ const PostItem = ({ post }) => {
     const { type } = post
     let listItem;
     if (type === "text") {
-        listItem = <Link to={`post/${post.id}`}><PostText post={post} /></Link>
+        const typepost = "textposts"
+        listItem = <Link to={`post/${typepost}/${post.id}`}><PostText post={post} /></Link>
     }
     if (type === "image") {
-        listItem = <Link to={`post/${post.id}`}><PostImage post={post} /></Link>
+        const typepost = "imageposts"
+        listItem = <Link to={`post/${typepost}/${post.id}`}><PostImage post={post} /></Link>
     }
     if (type === "video") {
-        listItem = <Link to={`post/${post.id}`}><PostVideo post={post} /></Link>
+        const typepost = "videoposts"
+        listItem = <Link to={`post/${typepost}/${post.id}`}><PostVideo post={post} /></Link>
     }
     return (
         <>
