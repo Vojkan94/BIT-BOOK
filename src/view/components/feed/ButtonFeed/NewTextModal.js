@@ -14,7 +14,7 @@ const NewTextModal = () => {
                         </div>
                         <div className="modal-body">
                             <label htmlFor="message-text" className="col-form-label">Post content</label>
-                            <textarea className="form-control" id="message-text"></textarea>
+                            <textarea className="form-control" id="post-input"></textarea>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary">POST</button>

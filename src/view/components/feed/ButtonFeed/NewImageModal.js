@@ -14,7 +14,7 @@ const NewImageModal = () => {
                         </div>
                         <div className="modal-body">
                             <p>Image link</p>
-                            <input type="text" className="col-12" />
+                            <input type="text" className="col-12" id="post-input" />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary">POST</button>
