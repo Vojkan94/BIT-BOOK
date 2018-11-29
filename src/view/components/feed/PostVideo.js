@@ -2,7 +2,6 @@ import React from 'react';
 import PostCountComment from './PostCountComment';
 
 const PostVideo = ({ post }) => {
-    // console.log(post.content);
     if (post.content.indexOf("youtube") === -1) {
         return null;
     }

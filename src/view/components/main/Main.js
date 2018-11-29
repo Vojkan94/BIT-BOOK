@@ -1,9 +1,14 @@
 import React from 'react';
 import PostList from './../feed/PostList'
+import { Route, Switch } from 'react-router-dom';
+import SinglePost from '../singlePost/SinglePost';
 const Main = () => {
     return (
         <main className="container mt-5">
-            <PostList />
+            <Switch>
+                <Route path="/post/:id" component={SinglePost} />
+                <Route path="/" component={PostList} />
+            </Switch>
         </main>
     )
 }
