@@ -19,7 +19,6 @@ const PostItem = ({ post }) => {
     return (
         <>
             {listItem}
-
         </>
     )
 }

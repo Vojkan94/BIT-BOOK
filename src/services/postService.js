@@ -1,5 +1,6 @@
 import Post from '../models/Post';
-import { BITBOOK_API_BASE_URL } from '../shared/constants';
+import Comment from '../models/Comment';
+import { apiService } from './apiService';
 
 class PostService {
 
@@ -15,8 +16,7 @@ class PostService {
     }
 
     fetchPosts() {
-        return fetch(`${BITBOOK_API_BASE_URL}/posts`, this.data)
-            .then((response) => response.json())
+        return apiService('GET', 'posts')
             .then((postObj) => postObj.map((post) => {
                 const { videoUrl, text, imageUrl, id, dateCreated, userId, userDisplayName, type, commentsNum } = post;
                 let content;
@@ -32,6 +32,16 @@ class PostService {
 
                 return new Post(content, id, dateCreated, userId, userDisplayName, type, commentsNum);
             }))
+    }
+
+    fetchComments(postId) {
+        return apiService('GET', `comments?postId=${postId}`)
+            .then((commentObj) => {
+                return commentObj.map((comment) => {
+                    const { id, dateCreated, body, postId, authorName, authorId } = comment;
+                    return new Comment(id, dateCreated, body, postId, authorName, authorId);
+                })
+            })
     }
 }
 
