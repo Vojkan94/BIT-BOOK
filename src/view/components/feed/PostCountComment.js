@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PostCountComment = (props) => {
+const PostCountComment = ({ postType, numComment }) => {
     return (
         <>
-            <p className="card-text float-left"> Post</p>
-            <p className="card-text float-right">Comments</p>
+            <p className="card-text float-left">{`${postType} post`}</p>
+            <p className="card-text float-right">{`Comments: ${numComment}`}</p>
         </>
 
     )
