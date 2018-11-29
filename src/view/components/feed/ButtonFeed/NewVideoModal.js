@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 const NewVideoModal = () => {
     return (
         <Fragment>
-            <div className="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade" id="videoModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -14,10 +14,10 @@ const NewVideoModal = () => {
                         </div>
                         <div className="modal-body">
                             <p>YouTube video link</p>
-                            <input type="text" value="" className="col-12" />
+                            <input type="text" className="col-12" />
                         </div>
                         <div className="modal-footer">
-                            <button type="button" class="btn btn-primary">POST</button>
+                            <button type="button" className="btn btn-primary">POST</button>
                         </div>
                     </div>
                 </div>

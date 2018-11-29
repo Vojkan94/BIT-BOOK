@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 const NewTextModal = () => {
     return (
         <Fragment>
-            <div className="modal fade" id="textModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade" id="textModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -13,11 +13,11 @@ const NewTextModal = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <label for="message-text" class="col-form-label">Post content</label>
+                            <label htmlFor="message-text" className="col-form-label">Post content</label>
                             <textarea className="form-control" id="message-text"></textarea>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" class="btn btn-primary">POST</button>
+                            <button type="button" className="btn btn-primary">POST</button>
                         </div>
                     </div>
                 </div>

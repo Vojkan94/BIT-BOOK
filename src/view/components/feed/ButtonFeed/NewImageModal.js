@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 const NewImageModal = () => {
     return (
         <Fragment>
-            <div className="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade" id="imageModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -14,7 +14,7 @@ const NewImageModal = () => {
                         </div>
                         <div className="modal-body">
                             <p>Image link</p>
-                            <input type="text" value="" className="col-12" />
+                            <input type="text" className="col-12" />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary">POST</button>
