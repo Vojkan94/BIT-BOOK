@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PostList from './../feed/PostList'
 const Main = () => {
     return (
         <main className="container mt-5">
-            <p>Nothing in feed...</p>
+            <PostList />
         </main>
     )
 }
