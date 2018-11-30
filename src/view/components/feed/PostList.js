@@ -19,6 +19,7 @@ class PostList extends Component {
     }
 
 
+
     render() {
         const postList = this.state.posts.map((post) => <PostItem key={post.id} post={post} />)
         return (
