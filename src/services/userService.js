@@ -12,13 +12,23 @@ class UserService {
             }))
     };
 
-    fetchSingleUser() {
+    fetchMyProfile() {
         return apiService.get('profile')
             .then(((user) => {
                 const { userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount } = user;
                 return new User(userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount);
             }))
     }
+
+    fetchSingleUser(userId) {
+        return apiService.get(`users/${userId}`)
+            .then(((user) => {
+                console.log(user);
+                const { userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount } = user;
+                return new User(userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount);
+            }))
+    }
+
 }
 
 export const userService = new UserService();

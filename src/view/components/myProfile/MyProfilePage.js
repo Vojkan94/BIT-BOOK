@@ -13,11 +13,21 @@ class MyProfile extends Component {
     }
 
     componentDidMount() {
-        userService.fetchSingleUser()
-            .then(((user) => {
-                console.log(user);
-                this.setState({ user })
-            }))
+        const userId = this.props.match.params.userId;
+        console.log(userId);
+        if (userId) {
+            userService.fetchSingleUser(userId)
+                .then(((user) => {
+                    console.log(user);
+                    this.setState({ user })
+                }))
+        } else {
+            userService.fetchMyProfile()
+                .then(((user) => {
+                    console.log(user);
+                    this.setState({ user })
+                }))
+        }
     }
     render() {
         if (!this.state.user) { return null }

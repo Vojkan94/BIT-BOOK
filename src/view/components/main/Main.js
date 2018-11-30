@@ -11,6 +11,7 @@ const Main = () => {
         <main className="container mt-5">
             <Switch>
                 <Route path="/post/:type/:postId" component={SinglePost} />
+                <Route path="/myprofile/:userId" component={MyProfile} />
                 <Route path="/myprofile" component={MyProfile} />
                 <Route path="/people" component={UserList} />
                 <Route path="/" component={PostList} />
