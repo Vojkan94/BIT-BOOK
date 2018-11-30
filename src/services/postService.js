@@ -60,6 +60,10 @@ class PostService {
     postData(queryString, inputData) {
         return apiService.post(queryString, inputData);
     }
+
+    postComment(queryString, inputData) {
+        return apiService.post(queryString, inputData);
+    }
 }
 export const postService = new PostService();
 
