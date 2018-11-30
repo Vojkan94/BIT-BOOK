@@ -1,7 +1,21 @@
-// import React from 'react';
+const dateFormat = (datePost) => {
+    let today = new Date().getDate();
+    let date = new Date(datePost);
 
-// const dateFormat = (date) => {
-//     let today = new Date().getDate();
+    if (datePost === null) {
+        return
+    }
+    if (date === today) {
+        let hour = date.getHours();
+        let min = date.getMinutes();
 
-//     if (date == )
-// }
+        return `Last post at ${hour}:${min}`
+    } else {
+        let dateOfPost = date.toLocaleDateString();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+
+        return `Last post at ${dateOfPost} - ${hour}:${min}`
+    }
+}
+export default dateFormat
