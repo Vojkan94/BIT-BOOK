@@ -26,7 +26,7 @@ class UserList extends Component {
 
     render() {
         const userList = this.state.users.map((user) => (
-            <Link to={`/myprofile/${user.id}`}>
+            <Link to={`/profile/${user.id}`}>
                 <UserItem key={user.id} user={user} />
             </Link>
         ))
