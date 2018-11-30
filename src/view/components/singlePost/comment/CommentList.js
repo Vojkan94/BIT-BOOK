@@ -21,7 +21,12 @@ class CommentList extends Component {
     }
     render() {
         if (!this.state.comments.length) {
-            return null
+            return (
+                <>
+                    <CommentInput />
+                    <p className="mt-3 ml-auto mr-auto col-12 col-md-10 col-lg-8"> There are no comments...</p>
+                </>
+            )
         }
         const commentItem = this.state.comments.map((comment) => {
             return <CommentItem key={comment.id} comment={comment} />

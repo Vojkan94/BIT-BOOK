@@ -23,7 +23,6 @@ class SinglePost extends Component {
 
     render() {
         if (!this.state.post) { return null }
-        console.log(this.props.match.params);
         return (
             <>
                 <PostItem post={this.state.post} />
