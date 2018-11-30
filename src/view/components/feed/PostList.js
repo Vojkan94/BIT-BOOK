@@ -18,6 +18,7 @@ class PostList extends Component {
             .then((posts) => this.setState({ posts }))
     }
 
+
     render() {
         const postList = this.state.posts.map((post) => <PostItem key={post.id} post={post} />)
         return (

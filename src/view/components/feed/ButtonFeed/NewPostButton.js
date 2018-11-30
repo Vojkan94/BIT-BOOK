@@ -1,12 +1,10 @@
 import React from 'react';
 
-import NewTextModal from './NewTextModal'
-import NewImageModal from './NewImageModal'
-import NewVideoModal from './NewVideoModal'
+import { NewTextModal } from './NewTextModal'
+import { NewImageModal } from './NewImageModal'
+import { NewVideoModal } from './NewVideoModal'
 import ButtonAnimation from './../../../../shared/ButtonAnimation'
-import { collectTextInput } from './CollectTextInput';
-import { collectImageInput } from './CollectImageInput';
-import { collectVideoInput } from './CollectVideoInput';
+
 
 import './NewPostButton.css'
 import 'font-awesome/css/font-awesome.min.css';
@@ -27,9 +25,10 @@ const NewPostButton = (props) => {
             <div className="fab child blue" data-subitem="3" data-toggle="modal" data-target="#textModal"><span className="buttonText"><i className="fa fa-file-text"></i></span></div>
             <div className="fab orange" id="masterfab"><span>+</span></div>
 
-            <NewTextModal collectTextInput={collectTextInput} />
-            <NewImageModal collectImageInput={collectImageInput} />
-            <NewVideoModal collectVideoInput={collectVideoInput} />
+
+            <NewTextModal />
+            <NewImageModal />
+            <NewVideoModal />
 
         </ >
     )
