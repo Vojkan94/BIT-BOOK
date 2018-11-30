@@ -23,7 +23,7 @@ class NewImageModal extends Component {
         const inputData = {
 
             "imageUrl": inputVal,
-            "dateCreated": "2018-11-29T14:07:14.370Z",
+            "dateCreated": new Date(),
             "userId": 0,
             "userDisplayName": "string",
             "type": "image"
@@ -36,11 +36,11 @@ class NewImageModal extends Component {
             })
 
 
-        window.location.href = "http://localhost:3000/";
+        // window.location.href = "http://localhost:3000/";
 
     }
     render() {
-        console.log("alos");
+
         return (
             <Fragment>
                 <div className="modal fade" id="imageModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -54,7 +54,7 @@ class NewImageModal extends Component {
                             </div>
                             <div className="modal-body">
                                 <p>Image link</p>
-                                <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" id="post-image" />
+                                <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
                             </div>
                             <div className="modal-footer">
                                 <button type="button" onClick={this.collectImageInput} className="btn btn-primary">POST</button>

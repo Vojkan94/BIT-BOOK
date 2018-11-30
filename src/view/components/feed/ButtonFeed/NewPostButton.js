@@ -1,12 +1,10 @@
 import React from 'react';
 
-import NewTextModal from './NewTextModal'
+import { NewTextModal } from './NewTextModal'
 import { NewImageModal } from './NewImageModal'
-import NewVideoModal from './NewVideoModal'
+import { NewVideoModal } from './NewVideoModal'
 import ButtonAnimation from './../../../../shared/ButtonAnimation'
-// import { collectTextInput } from './CollectTextInput';
-// import { collectImageInput } from './CollectImageInput';
-// import { collectVideoInput } from './CollectVideoInput';
+
 
 import './NewPostButton.css'
 import 'font-awesome/css/font-awesome.min.css';
