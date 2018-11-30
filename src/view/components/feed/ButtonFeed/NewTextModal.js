@@ -8,15 +8,17 @@ class NewTextModal extends Component {
         this.state = {
             inputValue: ""
         }
+        this.changeInput = this.changeInput.bind(this);
+        this.collectTextInput = this.collectTextInput.bind(this);
     }
 
-    changeInput = (event) => {
+    changeInput(event) {
         this.setState({
             inputValue: event.target.value
 
         })
     }
-    collectTextInput = () => {
+    collectTextInput() {
         const inputVal = this.state.inputValue;
         const type = 'TextPosts';
 

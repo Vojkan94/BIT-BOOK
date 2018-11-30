@@ -1,22 +1,35 @@
 import React, { Fragment, Component } from 'react';
 import { postService } from '../../../../services/postService'
 import { Link } from 'react-router-dom'
+import { validateService } from '../../../../services/validationService';
+
 class NewImageModal extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            inputValue: ""
+            inputValue: "",
+            validInput: true,
+            error: false
         }
+        this.changeInput = this.changeInput.bind(this);
+        this.collectImageInput = this.collectImageInput.bind(this);
     }
 
-    changeInput = (event) => {
+    changeInput(event) {
         this.setState({
             inputValue: event.target.value
 
         })
+
+        const valid = validateService.validateImagePost(event.target.value);
+        console.log(valid);
+        this.setState({
+            validInput: !valid,
+            error: !valid
+        })
     }
-    collectImageInput = () => {
+    collectImageInput() {
         const inputVal = this.state.inputValue;
         const type = 'ImagePosts';
 
@@ -29,6 +42,7 @@ class NewImageModal extends Component {
             "type": "image"
 
         }
+
 
         postService.postData(type, inputData)
             .then((response) => {
@@ -55,9 +69,10 @@ class NewImageModal extends Component {
                             <div className="modal-body">
                                 <p>Image link</p>
                                 <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
+                                {this.state.error ? <p className="text-danger mt-1">Please enter valid image link.</p> : null}
                             </div>
                             <div className="modal-footer">
-                                <button type="button" onClick={this.collectImageInput} className="btn btn-primary">POST</button>
+                                <button type="button" onClick={this.collectImageInput} disabled={this.state.validInput} className="btn btn-primary">POST</button>
                             </div>
                         </div>
                     </div>
