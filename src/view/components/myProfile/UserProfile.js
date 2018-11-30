@@ -8,7 +8,8 @@ class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: null
+            user: null,
+            open: false
         }
     }
 
@@ -22,11 +23,14 @@ class UserProfile extends Component {
             }))
 
     }
+
+
     render() {
         if (!this.state.user) { return null }
         const { user } = this.state;
         return (
             <>
+
                 <MyProfilePicAndName name={user.name} img={user.img} />
                 < MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
                 <MyProfileCount commentsCount={user.commentsCount} postsCount={user.postsCount} />
