@@ -4,7 +4,7 @@ import { MyProfileDesc } from './MyProfileDesc';
 import { MyProfileCount } from './MyProfileCount';
 import { userService } from '../../../services/userService';
 
-class MyProfile extends Component {
+class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,8 +13,9 @@ class MyProfile extends Component {
     }
 
     componentDidMount() {
+        const userId = this.props.match.params.userId;
 
-        userService.fetchMyProfile()
+        userService.fetchSingleUser(userId)
             .then(((user) => {
                 console.log(user);
                 this.setState({ user })
@@ -34,4 +35,4 @@ class MyProfile extends Component {
     }
 }
 
-export { MyProfile }
+export { UserProfile }

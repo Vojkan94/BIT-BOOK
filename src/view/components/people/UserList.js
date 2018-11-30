@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserItem from './UserItem';
+import { Link } from 'react-router-dom'
 import UserSearch from './UserSearch';
-
 import { userService } from '../../../services/userService';
 
 
@@ -37,8 +37,8 @@ class UserList extends Component {
 
     render() {
         const userList = this.state.usersSearch.length
-            ? this.state.usersSearch.map((user) => <UserItem key={user.id} user={user} />)
-            : this.state.users.map((user) => <UserItem key={user.id} user={user} />)
+            ? this.state.usersSearch.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
+            : this.state.users.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
 
         return (
             <>
