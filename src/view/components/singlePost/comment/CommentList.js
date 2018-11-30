@@ -19,11 +19,18 @@ class CommentList extends Component {
                 })
             })
     }
+
+    componentWillUpdate() {
+
+    }
+
     render() {
+        console.log(this.props.postId)
+
         if (!this.state.comments.length) {
             return (
                 <>
-                    <CommentInput />
+                    <CommentInput postId={this.props.postId} />
                     <p className="mt-3 ml-auto mr-auto col-12 col-md-10 col-lg-8"> There are no comments...</p>
                 </>
             )
@@ -33,7 +40,7 @@ class CommentList extends Component {
         })
         return (
             <>
-                <CommentInput />
+                <CommentInput postId={this.props.postId} />
                 {commentItem}
             </>
         )
