@@ -15,6 +15,12 @@ class UserList extends Component {
     }
 
     componentDidMount() {
+        userService.fetchUsers()
+            .then((users) => {
+                this.setState({
+                    users
+                })
+            })
     }
 
 
@@ -24,11 +30,7 @@ class UserList extends Component {
             <>
 
                 <UserSearch />
-                <UserItem />
-                <UserItem />
-                <UserItem />
-                <UserItem />
-                <UserItem />
+                {userList}
 
             </>
         )

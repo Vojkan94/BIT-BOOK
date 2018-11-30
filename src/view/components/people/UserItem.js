@@ -1,6 +1,7 @@
 import React from 'react';
 
 const UserItem = ({ user }) => {
+    console.log(user);
     return (
         <>
             <div className="container py-3 col-12 col-md-10 col-lg-8">
@@ -10,12 +11,12 @@ const UserItem = ({ user }) => {
                             <img className="rounded-circle " src="http://cdn.onlinewebfonts.com/svg/img_191958.png" alt="profile" width="80" />
                         </div>
                         <div className="card-block px-3 col-md-7 p-3 mt-2">
-                            <h6 className="card-title">John Doe</h6>
-                            <p className="card-text">Short user description bla blaShort user description bla blaShort user description bla bla </p>
+                            <h6 className="card-title">{user.name}</h6>
+                            <p className="card-text">{user.about}</p>
                         </div>
 
                         <div className="card-block col-2 px-3 mt-3 p-3 text-center ">
-                            <p className="card-text ">Last post <br />at 07:53</p>
+                            <p className="card-text ">Last post <br />at {user.lastPostDate}</p>
                         </div>
                     </div>
                 </div>
