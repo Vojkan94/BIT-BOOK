@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PostDelete = () => {
+const PostDelete = ({deletePost}) => {
     return (
-        <button type="button" className="close pb-2" aria-label="Close">
+        <button onClick={deletePost}type="button" className="close pb-2" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     )
