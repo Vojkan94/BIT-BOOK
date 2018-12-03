@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { apiService } from '../../../services/apiService';
 
 class EditProfileModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameInputValue: "",
-            descInputValue: "",
-            imageInputValue: "",
-            currentImg: ""
+            nameInputValue: this.props.user.name,
+            descInputValue: this.props.user.about,
+            currentImg: this.props.user.img,
+            file: ""
         }
     }
 
@@ -22,13 +23,65 @@ class EditProfileModal extends Component {
         })
     }
     changeImgInput = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            this.setState({
+                currentImg: reader.result,
+                file
+            })
+        };
+        reader.readAsDataURL(file);
+    }
+    b64toBlob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
 
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
 
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
 
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
 
-        console.log(event.target.files);
+            var byteArray = new Uint8Array(byteNumbers);
 
+            byteArrays.push(byteArray);
+        }
 
+        var blob = new Blob(byteArrays, { type: contentType });
+        return blob;
+    }
+    updateProfile = () => {
+        console.log(this.state.file);
+        // console.log(this.state.currentImg);
+
+        // var block = this.state.currentImg.split(";");
+        // var contentType = block[0].split(":")[1];
+        // var realData = block[1].split(",")[1];
+
+        // var blob = this.b64toBlob(realData, contentType);
+        // console.log(blob);
+        const formData = new FormData();
+        // formData.append('data', blob);
+
+        const inputData = {
+            "userId": this.props.user.id,
+            "name": this.state.nameInputValue,
+            "aboutShort": this.state.descInputValue,
+            "about": this.state.descInputValue,
+            "avatarUrl": formData,
+            "email": this.props.user.email
+        }
+        console.log(inputData);
+        apiService.put(inputData)
+            .then((response) => {
+                console.log(response);
+            })
     }
     render() {
         return (
@@ -59,8 +112,8 @@ class EditProfileModal extends Component {
                         </div>
                     </div>
                     <div className="row mt-5">
-                        <div className="col-3 ml-auto" >
-                            <button type="button" onClick={this.props.updateProfile} class="btn btn-primary col-5 mr-1 p-1">UPDATE</button>
+                        <div className="col-4 ml-auto" >
+                            <button type="button" onClick={this.updateProfile} class="btn btn-primary col-5 mr-1 p-1">UPDATE</button>
                             <button type="button" onClick={this.props.closeModal} class="btn btn-primary col-5 p-1">CLOSE</button>
                         </div>
                     </div>

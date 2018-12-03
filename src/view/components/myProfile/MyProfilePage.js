@@ -38,7 +38,7 @@ class MyProfile extends Component {
         const { user } = this.state;
         return (
             <>
-                <Modal open={this.state.open} closeModal={this.closeModal}></Modal>
+                <Modal open={this.state.open} closeModal={this.closeModal} user={this.state.user}></Modal>
                 <MyProfilePicAndName name={user.name} img={user.img} openModal={this.openModal} />
                 <MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
                 <MyProfileCount commentsCount={user.commentsCount} postsCount={user.postsCount} />

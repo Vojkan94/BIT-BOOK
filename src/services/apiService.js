@@ -30,6 +30,19 @@ class ApiService {
         return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
             .then((response) => response.json())
     }
+
+    put(inputData) {
+        const option = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbookdev',
+                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+            },
+            body: JSON.stringify(inputData)
+        }
+        return fetch(`${BITBOOK_API_BASE_URL}/profiles`, option)
+    }
 }
 
 export const apiService = new ApiService();
