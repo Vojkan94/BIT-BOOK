@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import PostItem from '../feed/PostItem';
 import CommentList from './comment/CommentList';
 import { postService } from '../../../services/postService'
+import { userService } from '../../../services/userService'
 
 class SinglePost extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            post: null
+            post: null,
+            user: null
         }
     }
 
@@ -19,14 +21,25 @@ class SinglePost extends Component {
             .then((post) => {
                 this.setState({ post })
             })
+
+        userService.fetchMyProfile()
+            .then(((user) => {
+                this.setState({ user })
+            }))
+
+
     }
 
     render() {
         if (!this.state.post) { return null }
+        if (!this.state.user) { return null }
+
         return (
             <>
-                <PostItem post={this.state.post} />
-                <CommentList postId={this.props.match.params.postId} />
+                <div className="col-8 offset-md-2">
+                    <PostItem post={this.state.post} user={this.state.user} />
+                    <CommentList postId={this.props.match.params.postId} />
+                </div>
             </>
         )
     }

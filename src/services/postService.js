@@ -54,6 +54,10 @@ class PostService {
     postComment(queryString, inputData) {
         return apiService.post(queryString, inputData);
     }
+
+    postDelete(queryString, inputData) {
+        return apiService.delete(queryString, inputData);
+    }
 }
 export const postService = new PostService();
 

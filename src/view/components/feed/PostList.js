@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PostItem from './PostItem';
+import PostFilter from './PostFilter';
 
 import { postService } from '../../../services/postService';
+import { userService } from '../../../services/userService';
+import { NewPostButton } from "./../feed/ButtonFeed/NewPostButton"
 
 
 class PostList extends Component {
@@ -9,21 +12,50 @@ class PostList extends Component {
         super(props);
 
         this.state = {
-            posts: []
+            posts: [],
+            user: null,
+            selectValue: "all"
         }
     }
 
     componentDidMount() {
         postService.fetchPosts()
-            .then((posts) => this.setState({ posts }))
+            .then((posts) => this.setState({ posts }));
+
+        userService.fetchMyProfile()
+            .then(((user) => {
+                this.setState({ user })
+            }))
     }
 
+    changeHandler = (event) => {
+        this.setState({
+            selectValue: event.target.value
+
+        })
+        console.log(this.state.selectValue);
+    }
 
     render() {
-        const postList = this.state.posts.map((post) => <PostItem key={post.id} post={post} />)
+        console.log(this.state.posts);
+
+        const postList = this.state.posts.filter((post) => {
+            if (this.state.selectValue === 'all') {
+                return true
+            }
+            return post.type === this.state.selectValue;
+        }).map((post) => <PostItem key={post.id} post={post} user={this.state.user} />)
         return (
             <>
-                {postList}
+                <div className="row">
+                    <div className="col-12 col-md-10 col-lg-8 offset-md-2">
+                        {postList}
+                    </div>
+                    <div className="col-2">
+                        <PostFilter changeHandler={this.changeHandler} />
+                    </div>
+                </div>
+                <NewPostButton />
             </>
         )
     }

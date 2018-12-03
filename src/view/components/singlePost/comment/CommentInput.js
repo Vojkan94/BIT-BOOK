@@ -20,14 +20,12 @@ class CommentInput extends Component {
     }
     postComment() {
         const inputData = {
-            "id": 0,
-            "dateCreated": new Date(),
             "body": this.state.changeInput,
             "postId": this.props.postId,
-            "authorName": "string",
-            "authorId": 0
         }
         postService.postComment("comments", inputData)
+        // .then()
+
         this.setState({
             changeInput: ''
         })
@@ -36,9 +34,9 @@ class CommentInput extends Component {
 
     render() {
         return (
-            <div className="m-auto row col-12 col-md-10 col-lg-8">
-                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10" placeholder="Add your comment" />
-                <button type="button" onClick={this.postComment} className="btn btn-primary col-2 " disabled={this.state.isDisabled}>Send</button>
+            <div className="m-auto row">
+                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10 mt-2" placeholder="Add your comment" />
+                <button type="button" onClick={this.postComment} className="btn btn-primary col-2 mt-2 pl-2" disabled={this.state.isDisabled}>Send</button>
             </div>
         )
     }

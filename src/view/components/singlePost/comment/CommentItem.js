@@ -1,22 +1,15 @@
 import React from 'react';
 
+import './css/Comment.css'
+
 
 const CommentItem = ({ comment }) => {
     return (
-
-        <div className="container py-3 col-12 col-md-10 col-lg-8">
-            <div className="card">
-                <div className="row ">
-                    <div className="col-md-3 text-center p-2">
-                        <img className="rounded-circle" src="http://cdn.onlinewebfonts.com/svg/img_191958.png" alt="profile" width="80" />
-                        <h6 className="card-title">{comment.authorName}</h6>
-                    </div>
-                    <div className="col-md-9 px-3 p-2">
-                        <div className="card-block px-3">
-                            <p className="card-text">{comment.body}</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="comment-item">
+            <div class="clearFix">
+                <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="profile" />
+                <h4>{comment.authorName}</h4>
+                <p className="">{comment.body}</p>
             </div>
         </div>
     )

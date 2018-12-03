@@ -1,10 +1,11 @@
 import React from "react";
+import './css/Footer.css'
 
 const Footer = () => {
     return (
-        <footer className="bg-dark footer">
-            <div className="container pt-3 pb-3">
-                <span className="text-muted">{new Date().getFullYear()} © Copyright TIM^2</span>
+        <footer>
+            <div className="container">
+                <span>{new Date().getFullYear()} © Copyright TIM<sup>2</sup></span>
             </div>
         </footer>
     );
