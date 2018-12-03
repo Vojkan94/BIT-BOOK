@@ -1,10 +1,14 @@
 import React from 'react';
-
-const Modal = ({ open, children }) => {
-    if (!open) { return null };
-    console.log(children[1].props.children);
+import './Modal.css'
+import { EditProfileModal } from './EditProfileModal';
+const Modal = ({ closeModal, open }) => {
+    const showHideClassName = open ? "modal display-block" : "modal display-none";
     return (
-        <div>{children[1].props.children}</div>
+        <div className={showHideClassName}>
+            <section className="modal-main">
+                <EditProfileModal closeModal={closeModal} />
+            </section>
+        </div>
     )
 }
 
