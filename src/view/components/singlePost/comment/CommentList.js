@@ -25,7 +25,6 @@ class CommentList extends Component {
     }
 
     render() {
-        console.log(this.props.postId)
 
         if (!this.state.comments.length) {
             return (

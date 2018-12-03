@@ -6,7 +6,7 @@ import PostVideo from './PostVideo';
 
 import { postService } from '../../../services/postService';
 
-const PostItem = ({ post }) => {
+const PostItem = ({ post, user }) => {
     const { type } = post
 
     const deletePost = () => {
@@ -19,22 +19,22 @@ const PostItem = ({ post }) => {
             "commentsNum": 0
         }
         postService.postDelete(`posts/${post.id}`, inputData);
-        
-        setTimeout(() => {
-            window.location.reload();
-            
-        },500)
+
+        // setTimeout(() => {
+        //     window.location.reload();
+
+        // }, 500)
     }
 
     let listItem;
     if (type === "text") {
-        listItem =<PostText post={post} deletePost={deletePost} />
+        listItem = <PostText post={post} deletePost={deletePost} user={user} />
     }
     if (type === "image") {
-        listItem =<PostImage post={post} deletePost={deletePost} />
+        listItem = <PostImage post={post} deletePost={deletePost} user={user} />
     }
     if (type === "video") {
-        listItem =<PostVideo post={post} deletePost={deletePost} />
+        listItem = <PostVideo post={post} deletePost={deletePost} user={user} />
     }
 
 
