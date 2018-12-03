@@ -4,21 +4,40 @@ import PostImage from './PostImage';
 import PostText from './PostText';
 import PostVideo from './PostVideo';
 
-const PostItem = ({ post }) => {
+import { postService } from '../../../services/postService';
+
+const PostItem = ({ post, user }) => {
     const { type } = post
+
+    const deletePost = () => {
+        let inputData = {
+            "id": post.id,
+            "dateCreated": new Date(),
+            "userId": 0,
+            "userDisplayName": "string",
+            "type": "string",
+            "commentsNum": 0
+        }
+        postService.postDelete(`posts/${post.id}`, inputData);
+
+        // setTimeout(() => {
+        //     window.location.reload();
+
+        // }, 500)
+    }
+
     let listItem;
     if (type === "text") {
-        const typepost = "textposts"
-        listItem = <Link to={`post/${typepost}/${post.id}`}><PostText post={post} /></Link>
+        listItem = <PostText post={post} deletePost={deletePost} user={user} />
     }
     if (type === "image") {
-        const typepost = "imageposts"
-        listItem = <Link to={`post/${typepost}/${post.id}`}><PostImage post={post} /></Link>
+        listItem = <PostImage post={post} deletePost={deletePost} user={user} />
     }
     if (type === "video") {
-        const typepost = "videoposts"
-        listItem = <Link to={`post/${typepost}/${post.id}`}><PostVideo post={post} /></Link>
+        listItem = <PostVideo post={post} deletePost={deletePost} user={user} />
     }
+
+
     return (
         <>
             {listItem}
@@ -27,3 +46,4 @@ const PostItem = ({ post }) => {
 }
 
 export default PostItem
+
