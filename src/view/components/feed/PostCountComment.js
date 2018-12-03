@@ -6,7 +6,7 @@ const PostCountComment = ({ postType, numComment }) => {
     return (
         <>
             <p className="float-left post-type">{`${postType} post`}</p>
-            <p className="float-right "><i class="fa fa-comments" aria-hidden="true"></i> <span className="counter-message">{numComment}</span></p>
+            <p className="float-right "><i className="fa fa-comments" aria-hidden="true"></i> <span className="counter-message">{numComment}</span></p>
         </>
 
     )

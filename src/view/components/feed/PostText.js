@@ -16,11 +16,11 @@ const PostText = ({ post, deletePost, user }) => {
                     : <div></div>
                 }
                 <Link to={`post/textposts/${post.id}`}><div className="card-body p-0 m-2">
-                    <p className="post-text">
-                        <blockquote>
-                            {post.content}
-                        </blockquote>
-                    </p>
+
+                    <blockquote className="post-text">
+                        {post.content}
+                    </blockquote>
+
                     <PostCountComment postType={post.type} numComment={post.commentsNum} />
                 </div>
                 </Link>
