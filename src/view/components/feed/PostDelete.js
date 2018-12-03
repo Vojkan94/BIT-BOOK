@@ -1,5 +1,5 @@
 import React from 'react';
-import './PostDelete.css'
+import './css/PostDelete.css'
 
 const PostDelete = ({ deletePost }) => {
     return (

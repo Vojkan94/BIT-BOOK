@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './PostCountComment.css'
+import './css/PostCountComment.css'
 
 const PostCountComment = ({ postType, numComment }) => {
     return (

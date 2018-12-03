@@ -26,11 +26,14 @@ class SinglePost extends Component {
             .then(((user) => {
                 this.setState({ user })
             }))
+
+
     }
 
     render() {
         if (!this.state.post) { return null }
         if (!this.state.user) { return null }
+
         return (
             <>
                 <div className="col-8 offset-md-2">

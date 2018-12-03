@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PostCountComment from './PostCountComment';
 import PostDelete from './PostDelete';
 
-import './PostText.css'
+import './css/PostText.css'
 
 const PostText = ({ post, deletePost, user }) => {
     return (
@@ -16,7 +16,7 @@ const PostText = ({ post, deletePost, user }) => {
                     : <div></div>
                 }
                 <Link to={`post/textposts/${post.id}`}><div className="card-body p-0 m-2">
-                    <p>
+                    <p className="post-text">
                         <blockquote>
                             {post.content}
                         </blockquote>

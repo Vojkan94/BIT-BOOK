@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PostFilter.css'
+import './css/PostFilter.css'
 
 class PostFilter extends Component {
     constructor(props) {
