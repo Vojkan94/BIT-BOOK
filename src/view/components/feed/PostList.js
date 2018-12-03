@@ -13,7 +13,7 @@ class PostList extends Component {
 
         this.state = {
             posts: [],
-            user: null,
+            userId: null,
             selectValue: "all"
         }
     }
@@ -24,8 +24,13 @@ class PostList extends Component {
 
         userService.fetchMyProfile()
             .then(((user) => {
-                this.setState({ user })
+                localStorage.setItem("userId", user.id)
+                this.setState({
+                    userId: user.id
+                })
             }))
+
+
     }
 
     changeHandler = (event) => {
@@ -42,7 +47,7 @@ class PostList extends Component {
                 return true
             }
             return post.type === this.state.selectValue;
-        }).map((post) => <PostItem key={post.id} post={post} user={this.state.user} />)
+        }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} />)
         return (
             <>
                 <div className="row">

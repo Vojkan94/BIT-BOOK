@@ -5,7 +5,7 @@ import PostVideo from './PostVideo';
 
 import { postService } from '../../../services/postService';
 
-const PostItem = ({ post, user }) => {
+const PostItem = ({ post, userId }) => {
     const { type } = post
 
     const deletePost = () => {
@@ -19,16 +19,16 @@ const PostItem = ({ post, user }) => {
         //     this.props.loadPosts()
         // })
     }
-    if (!user) { return null }
+    if (!userId) { return null }
     let listItem;
     if (type === "text") {
-        listItem = <PostText post={post} deletePost={deletePost} user={user} />
+        listItem = <PostText post={post} deletePost={deletePost} userId={userId} />
     }
     if (type === "image") {
-        listItem = <PostImage post={post} deletePost={deletePost} user={user} />
+        listItem = <PostImage post={post} deletePost={deletePost} userId={userId} />
     }
     if (type === "video") {
-        listItem = <PostVideo post={post} deletePost={deletePost} user={user} />
+        listItem = <PostVideo post={post} deletePost={deletePost} userId={userId} />
     }
 
 
