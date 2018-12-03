@@ -35,8 +35,8 @@ class CommentInput extends Component {
     render() {
         return (
             <div className="m-auto row">
-                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10" placeholder="Add your comment" />
-                <button type="button" onClick={this.postComment} className="btn btn-primary col-2 " disabled={this.state.isDisabled}>Send</button>
+                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10 mt-2" placeholder="Add your comment" />
+                <button type="button" onClick={this.postComment} className="btn btn-primary col-2 mt-2 pl-2" disabled={this.state.isDisabled}>Send</button>
             </div>
         )
     }

@@ -1,27 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './css/Header.css'
+
 const Header = () => {
     return (
-        <header className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <header className="nav">
             <div className="container">
-                <Link className="navbar-brand" to="/">BIT BOOK</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse " id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Feed</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/people">People</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/myprofile">Profile</Link>
-                        </li>
+                <div className="nav-logo">
+                    <Link to="/"><img src="https://i.imgur.com/6DlUpLk.png" /></Link>
+                </div>
+
+                <div className="nav-ul">
+                    <ul>
+                        <li><Link to="/myprofile"><i class="fa fa-user"></i><span className="nav-icon">Profile</span></Link></li>
+                        <li><Link to="/people"><i class="fa fa-users"></i><span className="nav-icon">People</span></Link></li>
+                        <li><Link to="/"><i class="fa fa-rss"></i><span className="nav-icon">Feed</span></Link></li>
                     </ul>
                 </div>
+
             </div>
         </header>
     )

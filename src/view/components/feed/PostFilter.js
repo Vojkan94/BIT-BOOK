@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/PostFilter.css'
 
 class PostFilter extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class PostFilter extends Component {
     render() {
         return (
             <>
-                <select onChange={this.props.changeHandler} className="form-control mt-2">
+                <select onChange={this.props.changeHandler} className="form-control mt-2 filter">
                     <option value="all">All posts</option>
                     <option value="text">Text posts</option>
                     <option value="image">Image posts</option>

@@ -4,6 +4,7 @@ import PostFilter from './PostFilter';
 
 import { postService } from '../../../services/postService';
 import { userService } from '../../../services/userService';
+import { NewPostButton } from "./../feed/ButtonFeed/NewPostButton"
 
 
 class PostList extends Component {
@@ -54,6 +55,7 @@ class PostList extends Component {
                         <PostFilter changeHandler={this.changeHandler} />
                     </div>
                 </div>
+                <NewPostButton />
             </>
         )
     }

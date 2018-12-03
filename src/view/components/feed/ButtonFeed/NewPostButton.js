@@ -23,7 +23,7 @@ const NewPostButton = (props) => {
                 <span className="buttonText"><i className="fa fa-file-video-o"></i></span></div>
             <div className="fab child green" data-subitem="2" data-toggle="modal" data-target="#imageModal"><span className="buttonText"><i className="fa fa-file-image-o "></i></span></div>
             <div className="fab child blue" data-subitem="3" data-toggle="modal" data-target="#textModal"><span className="buttonText"><i className="fa fa-file-text"></i></span></div>
-            <div className="fab orange" id="masterfab"><span>+</span></div>
+            <div className="fab blue" id="masterfab"><span>+</span></div>
 
 
             <NewTextModal />
