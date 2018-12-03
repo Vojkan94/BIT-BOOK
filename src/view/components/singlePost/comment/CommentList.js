@@ -11,13 +11,19 @@ class CommentList extends Component {
             comments: []
         }
     }
-    componentDidMount() {
+
+    loadComments() {
         postService.fetchComments(this.props.postId)
             .then((comments) => {
                 this.setState({
                     comments
                 })
             })
+
+    }
+
+    componentDidMount() {
+        this.loadComments()
     }
 
     componentWillUpdate() {
@@ -30,7 +36,7 @@ class CommentList extends Component {
             return (
                 <>
                     <CommentInput postId={this.props.postId} />
-                    <p className="mt-3 ml-auto mr-auto col-12 col-md-10 col-lg-8"> There are no comments...</p>
+                    <p className="mt-3 ml-auto mr-auto"> There are no comments...</p>
                 </>
             )
         }

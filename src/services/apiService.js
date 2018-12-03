@@ -31,15 +31,14 @@ class ApiService {
             .then((response) => response.json())
     }
 
-    delete(queryString, inputData) {
+    delete(queryString) {
         const option = {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
                 'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
-            },
-            body: JSON.stringify(inputData)
+            }
         }
         return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
             .then((response) => response.json())
