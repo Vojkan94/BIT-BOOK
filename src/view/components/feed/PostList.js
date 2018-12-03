@@ -33,11 +33,9 @@ class PostList extends Component {
             selectValue: event.target.value
 
         })
-        console.log(this.state.selectValue);
     }
 
     render() {
-        console.log(this.state.posts);
 
         const postList = this.state.posts.filter((post) => {
             if (this.state.selectValue === 'all') {
