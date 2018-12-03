@@ -8,7 +8,7 @@ const PostVideo = ({ post, deletePost, user }) => {
     return null;
   }
   return (
-    <div className="card container pt-2 mt-2 mb-2 col-12 col-md-10 col-lg-8">
+    <div className="card container pt-2 mt-2 mb-2">
       {user.id === post.userId
         ? <div className="card-body p-0 m-2">
           <PostDelete deletePost={deletePost} />

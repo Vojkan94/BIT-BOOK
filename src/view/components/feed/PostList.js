@@ -12,8 +12,8 @@ class PostList extends Component {
 
         this.state = {
             posts: [],
-            user: {},
-            selectValue: "posts"
+            user: null,
+            selectValue: "all"
         }
     }
 
@@ -38,11 +38,22 @@ class PostList extends Component {
     render() {
         console.log(this.state.posts);
 
-        const postList = this.state.posts.map((post) => <PostItem key={post.id} post={post} user={this.state.user} selectValue={this.state.selectValue} />)
+        const postList = this.state.posts.filter((post) => {
+            if (this.state.selectValue === 'all') {
+                return true
+            }
+            return post.type === this.state.selectValue;
+        }).map((post) => <PostItem key={post.id} post={post} user={this.state.user} />)
         return (
             <>
-                <PostFilter changeHandler={this.changeHandler} />
-                {postList}
+                <div className="row">
+                    <div className="col-12 col-md-10 col-lg-8 offset-md-2">
+                        {postList}
+                    </div>
+                    <div className="col-2">
+                        <PostFilter changeHandler={this.changeHandler} />
+                    </div>
+                </div>
             </>
         )
     }

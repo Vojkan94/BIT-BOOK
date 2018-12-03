@@ -16,8 +16,8 @@ class PostFilter extends Component {
     render() {
         return (
             <>
-                <select onChange={this.props.changeHandler} className="form-control">
-                    <option value="posts">All posts</option>
+                <select onChange={this.props.changeHandler} className="form-control mt-2">
+                    <option value="all">All posts</option>
                     <option value="text">Text posts</option>
                     <option value="image">Image posts</option>
                     <option value="video">Video posts</option>

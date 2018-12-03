@@ -4,7 +4,7 @@ import React from 'react';
 const CommentItem = ({ comment }) => {
     return (
 
-        <div className="container py-3 col-12 col-md-10 col-lg-8">
+        <div className="container py-3">
             <div className="card">
                 <div className="row ">
                     <div className="col-md-3 text-center p-2">
