@@ -6,7 +6,7 @@ import PostVideo from './PostVideo';
 
 import { postService } from '../../../services/postService';
 
-const PostItem = ({ post, user }) => {
+const PostItem = ({ post, user, selectValue }) => {
     const { type } = post
 
     const deletePost = () => {
@@ -26,21 +26,32 @@ const PostItem = ({ post, user }) => {
         // }, 500)
     }
 
-    let listItem;
-    if (type === "text") {
-        listItem = <PostText post={post} deletePost={deletePost} user={user} />
+    let listItemText;
+    let listItemImage;
+    let listItemVideo;
+
+    if (selectValue === "posts") {
+        listItemText = <PostText post={post} deletePost={deletePost} user={user} />
+        listItemImage = <PostImage post={post} deletePost={deletePost} user={user} />
+        listItemVideo = <PostVideo post={post} deletePost={deletePost} user={user} />
     }
-    if (type === "image") {
-        listItem = <PostImage post={post} deletePost={deletePost} user={user} />
+    if (type === "text" && selectValue === "text") {
+        listItemText = <PostText post={post} deletePost={deletePost} user={user} />
     }
-    if (type === "video") {
-        listItem = <PostVideo post={post} deletePost={deletePost} user={user} />
+    if (type === "image" && selectValue === "image") {
+        listItemImage = <PostImage post={post} deletePost={deletePost} user={user} />
     }
+    if (type === "video" && selectValue === "video") {
+        listItemVideo = <PostVideo post={post} deletePost={deletePost} user={user} />
+    }
+
 
 
     return (
         <>
-            {listItem}
+            {listItemText}
+            {listItemImage}
+            {listItemVideo}
         </>
     )
 }
