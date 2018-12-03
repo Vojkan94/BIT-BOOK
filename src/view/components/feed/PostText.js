@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PostCountComment from './PostCountComment';
 import PostDelete from './PostDelete';
 
+import './PostText.css'
+
 const PostText = ({ post, deletePost, user }) => {
     return (
         <>
@@ -14,8 +16,10 @@ const PostText = ({ post, deletePost, user }) => {
                     : <div></div>
                 }
                 <Link to={`post/textposts/${post.id}`}><div className="card-body p-0 m-2">
-
-                    <p>{post.content}
+                    <p>
+                        <blockquote>
+                            {post.content}
+                        </blockquote>
                     </p>
                     <PostCountComment postType={post.type} numComment={post.commentsNum} />
                 </div>

@@ -4,6 +4,8 @@ import { MyProfileDesc } from './MyProfileDesc';
 import { MyProfileCount } from './MyProfileCount';
 import { userService } from '../../../services/userService';
 
+import './MyProfile.css'
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
