@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PostImage from './PostImage';
 import PostText from './PostText';
 import PostVideo from './PostVideo';
 
 import { postService } from '../../../services/postService';
 
-const PostItem = ({ post, user, selectValue }) => {
+const PostItem = ({ post, user }) => {
     const { type } = post
 
     const deletePost = () => {
@@ -20,9 +19,8 @@ const PostItem = ({ post, user, selectValue }) => {
         //     this.props.loadPosts()
         // })
     }
-
+    if (!user) { return null }
     let listItem;
-
     if (type === "text") {
         listItem = <PostText post={post} deletePost={deletePost} user={user} />
     }
