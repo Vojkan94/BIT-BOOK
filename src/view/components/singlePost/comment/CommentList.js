@@ -10,34 +10,26 @@ class CommentList extends Component {
         this.state = {
             comments: []
         }
+        this.loadComments = this.loadComments.bind(this);
     }
-
     loadComments() {
         postService.fetchComments(this.props.postId)
             .then((comments) => {
                 this.setState({
                     comments
                 })
-                console.log(this.state.comments);
             })
-
     }
-
     componentDidMount() {
         this.loadComments()
-
     }
 
-    componentWillUpdate() {
-
-    }
 
     render() {
-
         if (!this.state.comments.length) {
             return (
                 <>
-                    <CommentInput postId={this.props.postId} />
+                    <CommentInput postId={this.props.postId} loadComments={this.loadComments} />
                     <p className="mt-3 ml-auto mr-auto"> There are no comments...</p>
                 </>
             )
@@ -47,7 +39,7 @@ class CommentList extends Component {
         })
         return (
             <>
-                <CommentInput postId={this.props.postId} />
+                <CommentInput postId={this.props.postId} loadComments={this.loadComments} />
                 {commentItem}
             </>
         )

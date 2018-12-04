@@ -13,36 +13,39 @@ class PostList extends Component {
 
         this.state = {
             posts: [],
-            user: null,
+            userId: null,
             selectValue: "all"
         }
+        this.loadPosts = this.loadPosts.bind(this)
     }
 
     componentDidMount() {
-        postService.fetchPosts()
-            .then((posts) => this.setState({ posts }));
+        this.loadPosts();
 
         userService.fetchMyProfile()
             .then(((user) => {
-                this.setState({ user })
+                localStorage.setItem("userId", user.id)
+                this.setState({
+                    userId: user.id
+                })
             }))
     }
-
+    loadPosts() {
+        postService.fetchPosts()
+            .then((posts) => this.setState({ posts }));
+    }
     changeHandler = (event) => {
         this.setState({
             selectValue: event.target.value
-
         })
     }
-
     render() {
-
         const postList = this.state.posts.filter((post) => {
             if (this.state.selectValue === 'all') {
                 return true
             }
             return post.type === this.state.selectValue;
-        }).map((post) => <PostItem key={post.id} post={post} user={this.state.user} />)
+        }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} loadPosts={this.loadPosts} />)
         return (
             <>
                 <div className="row">

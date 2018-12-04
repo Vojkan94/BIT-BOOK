@@ -1,4 +1,4 @@
-import { BITBOOK_API_BASE_URL } from '../shared/constants'
+import { BITBOOK_API_BASE_URL } from '../shared/constants';
 
 class ApiService {
 
@@ -42,7 +42,7 @@ class ApiService {
             }
         }
         return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
-            .then((response) => response.json())
+
     }
 
     put(inputData) {

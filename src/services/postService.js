@@ -3,7 +3,6 @@ import Comment from '../models/Comment';
 import { apiService } from './apiService';
 
 class PostService {
-
     fetchPosts() {
         return apiService.get('posts')
             .then((postObj) => postObj.map((post) => {
@@ -50,11 +49,9 @@ class PostService {
     postData(queryString, inputData) {
         return apiService.post(queryString, inputData);
     }
-
     postComment(queryString, inputData) {
         return apiService.post(queryString, inputData);
     }
-
     postDelete(queryString, inputData) {
         return apiService.delete(queryString, inputData);
     }

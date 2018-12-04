@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import PostCountComment from "./PostCountComment";
 import PostDelete from "./PostDelete";
 
-const PostVideo = ({ post, deletePost, user }) => {
+const PostVideo = ({ post, deletePost, userId }) => {
   if (post.content.indexOf("youtube") === -1) {
     return null;
   }
   return (
     <div className="card container pt-2 mt-2 mb-2">
-      {user.id === post.userId
+      {parseInt(userId) === post.userId
         ? <div className="card-body p-0 m-2">
           <PostDelete deletePost={deletePost} />
         </div>

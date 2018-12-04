@@ -24,7 +24,11 @@ class CommentInput extends Component {
             "postId": this.props.postId,
         }
         postService.postComment("comments", inputData)
-        // .then()
+            .then((response) => {
+                if (response) {
+                    this.props.loadComments();
+                }
+            })
 
         this.setState({
             changeInput: ''
