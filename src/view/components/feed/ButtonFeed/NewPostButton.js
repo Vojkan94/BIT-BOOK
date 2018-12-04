@@ -20,7 +20,6 @@ class NewPostButton extends Component {
             open: true,
             modalType: type
         })
-        console.log(type);
     }
     closeModal = () => {
         this.setState({
@@ -42,7 +41,7 @@ class NewPostButton extends Component {
                 <div className="fab child blue" data-subitem="3" onClick={() => { this.openModal("text") }} ><span className="buttonText"><i className="fa fa-file-text"></i></span></div>
                 <div className="fab blue" id="masterfab"><span>+</span></div>
 
-                <ModalFeed open={this.state.open} closeModal={this.closeModal} type={this.state.modalType} />
+                <ModalFeed open={this.state.open} closeModal={this.closeModal} type={this.state.modalType} loadPosts={this.props.loadPosts} />
             </ >
         )
     }

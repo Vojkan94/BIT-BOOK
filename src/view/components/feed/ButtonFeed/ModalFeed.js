@@ -4,18 +4,18 @@ import { NewImageModal } from './NewImageModal';
 import { NewTextModal } from './NewTextModal';
 import { NewVideoModal } from './NewVideoModal';
 
-const ModalFeed = ({ closeModal, open, user, type }) => {
+const ModalFeed = ({ closeModal, open, user, type, loadPosts }) => {
     const showHideClassName = open ? "modal display-block" : "modal display-none";
     let ChosenModal;
     switch (type) {
         case 'text':
-            ChosenModal = <NewTextModal closeModal={closeModal} />;
+            ChosenModal = <NewTextModal closeModal={closeModal} loadPosts={loadPosts} />;
             break;
         case 'image':
-            ChosenModal = <NewImageModal closeModal={closeModal} />;
+            ChosenModal = <NewImageModal closeModal={closeModal} loadPosts={loadPosts} />;
             break;
         case 'video':
-            ChosenModal = <NewVideoModal closeModal={closeModal} />;
+            ChosenModal = <NewVideoModal closeModal={closeModal} loadPosts={loadPosts} />;
             break;
         default:
             break;

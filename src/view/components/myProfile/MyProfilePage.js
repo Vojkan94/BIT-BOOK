@@ -4,6 +4,7 @@ import { MyProfileDesc } from './MyProfileDesc';
 import { MyProfileCount } from './MyProfileCount';
 import { userService } from '../../../services/userService';
 import { Modal } from './Modal';
+import { EditProfileButton } from './EditProfileButton';
 
 class MyProfile extends Component {
     constructor(props) {
@@ -15,12 +16,13 @@ class MyProfile extends Component {
     }
 
     componentDidMount() {
-
+        this.fetchData();
+    }
+    fetchData = () => {
         userService.fetchMyProfile()
             .then(((user) => {
                 this.setState({ user })
             }))
-
     }
     openModal = () => {
         this.setState({
@@ -38,9 +40,10 @@ class MyProfile extends Component {
         const { user } = this.state;
         return (
             <>
-                <Modal open={this.state.open} closeModal={this.closeModal} user={this.state.user} />
-                <MyProfilePicAndName name={user.name} img={user.img} openModal={this.openModal} />
-                <MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
+                <Modal open={this.state.open} closeModal={this.closeModal} user={this.state.user} fetchData={this.fetchData} />
+                <EditProfileButton openModal={this.openModal} />
+                <MyProfilePicAndName name={user.name} img={user.img} />
+                <MyProfileDesc about={user.about} />
                 <MyProfileCount commentsCount={user.commentsCount} postsCount={user.postsCount} />
 
             </>
