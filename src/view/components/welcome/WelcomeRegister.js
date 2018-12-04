@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { userService } from '../../../services/userService';
-
+import { validateService } from '../../../services/validationService';
 
 class WelcomeRegister extends Component {
     constructor(props) {
@@ -9,7 +9,12 @@ class WelcomeRegister extends Component {
             nameInput: "",
             userNameInput: "",
             emailInput: "",
-            passwordInput: ""
+            passwordInput: "",
+            errorName: false,
+            errorUserName: false,
+            errorEmail: false,
+            errorPassword: false,
+            validInput: true
         }
     }
 
@@ -24,8 +29,10 @@ class WelcomeRegister extends Component {
         })
     }
     changeEmailInput = (event) => {
+        const valid = validateService.validateEmail(event.target.value);
         this.setState({
-            emailInput: event.target.value
+            emailInput: event.target.value,
+            errorEmail: !valid
         })
     }
     changePasswordInput = (event) => {
@@ -34,6 +41,7 @@ class WelcomeRegister extends Component {
         })
     }
     registerUser = () => {
+
         const inputData = {
             "username": this.state.userNameInput,
             "password": this.state.passwordInput,
@@ -48,6 +56,8 @@ class WelcomeRegister extends Component {
 
 
     render() {
+        const { errorName, errorUserName, errorEmail, errorPassword } = this.state
+        const isAllValid = (errorName && errorUserName && errorEmail && errorPassword) ? false : true
         return (
             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div className="row">
@@ -62,13 +72,14 @@ class WelcomeRegister extends Component {
 
                         <div className="form-group">
                             <input type="text" value={this.state.emailInput} onChange={this.changeEmailInput} className="form-control mt-3" id="registerEmail" placeholder="Enter Email" />
+                            {this.state.errorEmail ? <p className="text-danger mt-1">Please enter valid e-mail address.</p> : null}
                         </div>
 
                         <div className="form-group">
                             <input type="password" value={this.state.passwordInput} onChange={this.changePasswordInput} className="form-control" id="registerPassword" placeholder="Enter Password" />
                         </div>
 
-                        <button type="button" onClick={this.registerUser} className="btn btn-primary" id="registerButton">Register</button>
+                        <button type="button" onClick={this.registerUser} disabled={isAllValid} className="btn btn-primary" id="registerButton">Register</button>
                     </form>
                 </div>
             </div>
