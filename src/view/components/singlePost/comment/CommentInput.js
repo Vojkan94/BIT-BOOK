@@ -35,11 +35,18 @@ class CommentInput extends Component {
         })
     }
 
+    onKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.postComment();
+        }
+
+    }
+
 
     render() {
         return (
             <div className="m-auto row">
-                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10 mt-2" placeholder="Add your comment" />
+                <input type="text" onChange={this.handlerChange} value={this.state.changeInput} className="form-control col-10 mt-2" placeholder="Add your comment" onKeyPress={this.onKeyPress} />
                 <button type="button" onClick={this.postComment} className="btn btn-primary col-2 mt-2 pl-2" disabled={this.state.isDisabled}>Send</button>
             </div>
         )
