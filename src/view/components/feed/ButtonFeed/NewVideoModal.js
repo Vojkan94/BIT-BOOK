@@ -44,7 +44,10 @@ class NewVideoModal extends Component {
 
         postService.postData(type, inputData)
             .then((response) => {
-                console.log(response);
+                if (response === true) {
+                    this.props.closeModal();
+                    this.props.loadPosts();
+                }
             })
 
     }

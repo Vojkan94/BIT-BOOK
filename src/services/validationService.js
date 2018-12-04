@@ -14,7 +14,16 @@ class ValidationService {
     }
 
     validateImagePost(url) {
-        return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+        } else {
+            return false;
+        }
+    }
+
+    validateTextPost(text) {
+        const regex = /^[a-zA-Z0-9@]+$/;
+        return text.match(regex) !== true
     }
 }
 

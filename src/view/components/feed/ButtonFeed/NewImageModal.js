@@ -22,7 +22,6 @@ class NewImageModal extends Component {
         })
 
         const valid = validateService.validateImagePost(event.target.value);
-        console.log(valid);
         this.setState({
             validInput: !valid,
             error: !valid
@@ -44,7 +43,10 @@ class NewImageModal extends Component {
 
         postService.postData(type, inputData)
             .then((response) => {
-                console.log(response);
+                if (response === true) {
+                    this.props.closeModal();
+                    this.props.loadPosts();
+                }
             })
 
     }

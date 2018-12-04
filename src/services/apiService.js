@@ -59,14 +59,17 @@ class ApiService {
     }
 
     upload(file) {
+        var formData = new FormData();
+        formData.append('file', file);
+
         const option = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE',
+                'mimeType': "multipart/form-data"
             },
-            body: file
+            body: formData
         }
         return fetch(`${BITBOOK_API_BASE_URL}/upload`, option)
     }

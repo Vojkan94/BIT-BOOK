@@ -2,7 +2,7 @@ import React from 'react';
 
 import './css/MyProfile.css'
 
-const MyProfileDesc = ({ about, aboutShort }) => {
+const MyProfileDesc = ({ about }) => {
     return (
         <div className="profile-desc">
             <h3>- About -</h3>

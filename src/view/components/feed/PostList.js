@@ -56,7 +56,7 @@ class PostList extends Component {
                         <PostFilter changeHandler={this.changeHandler} />
                     </div>
                 </div>
-                <NewPostButton />
+                <NewPostButton loadPosts={this.loadPosts} />
             </>
         )
     }

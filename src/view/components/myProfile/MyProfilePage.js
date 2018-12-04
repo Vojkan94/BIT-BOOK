@@ -15,12 +15,13 @@ class MyProfile extends Component {
     }
 
     componentDidMount() {
-
+        this.fetchData();
+    }
+    fetchData = () => {
         userService.fetchMyProfile()
             .then(((user) => {
                 this.setState({ user })
             }))
-
     }
     openModal = () => {
         this.setState({
@@ -38,9 +39,9 @@ class MyProfile extends Component {
         const { user } = this.state;
         return (
             <>
-                <Modal open={this.state.open} closeModal={this.closeModal} user={this.state.user} />
+                <Modal open={this.state.open} closeModal={this.closeModal} user={this.state.user} fetchData={this.fetchData} />
                 <MyProfilePicAndName name={user.name} img={user.img} openModal={this.openModal} />
-                <MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
+                <MyProfileDesc about={user.about} />
                 <MyProfileCount commentsCount={user.commentsCount} postsCount={user.postsCount} />
 
             </>
