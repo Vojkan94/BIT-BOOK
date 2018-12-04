@@ -22,8 +22,8 @@ class ValidationService {
     }
 
     validateTextPost(text) {
-        const regex = /^[a-zA-Z0-9@]+$/;
-        return text.match(regex) !== true
+        const regex = /^[a-zA-Z0-9 ]+$/;
+        return text.match(regex) !== null;
     }
 }
 

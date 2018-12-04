@@ -18,7 +18,6 @@ class NewImageModal extends Component {
     changeInput(event) {
         this.setState({
             inputValue: event.target.value
-
         })
 
         const valid = validateService.validateImagePost(event.target.value);
@@ -64,7 +63,7 @@ class NewImageModal extends Component {
                         </div>
                         <div className="modal-body">
                             <p>Image link</p>
-                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
+                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
                             {this.state.error ? <p className="text-danger mt-1">Please enter valid image link.</p> : null}
                         </div>
                         <div className="modal-footer">
