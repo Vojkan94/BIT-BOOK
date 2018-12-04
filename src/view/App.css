@@ -55,3 +55,7 @@ input[type="file"] {
 .display-none {
   display: none !important;
 }
+
+.nav-login{
+  background-color: #eef3f4 !important;
+}
