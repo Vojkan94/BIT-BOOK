@@ -33,55 +33,36 @@ class EditProfileModal extends Component {
         };
         reader.readAsDataURL(file);
     }
-    b64toBlob(b64Data, contentType, sliceSize) {
-        contentType = contentType || '';
-        sliceSize = sliceSize || 512;
 
-        var byteCharacters = atob(b64Data);
-        var byteArrays = [];
 
-        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-            var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-            var byteNumbers = new Array(slice.length);
-            for (var i = 0; i < slice.length; i++) {
-                byteNumbers[i] = slice.charCodeAt(i);
-            }
-
-            var byteArray = new Uint8Array(byteNumbers);
-
-            byteArrays.push(byteArray);
-        }
-
-        var blob = new Blob(byteArrays, { type: contentType });
-        return blob;
-    }
     updateProfile = () => {
         console.log(this.state.file);
-        // console.log(this.state.currentImg);
 
-        // var block = this.state.currentImg.split(";");
-        // var contentType = block[0].split(":")[1];
-        // var realData = block[1].split(",")[1];
+        var formData = new FormData();
+        formData.append('file', this.state.file);
 
-        // var blob = this.b64toBlob(realData, contentType);
-        // console.log(blob);
-        const formData = new FormData();
-        // formData.append('data', blob);
-
-        const inputData = {
-            "userId": this.props.user.id,
-            "name": this.state.nameInputValue,
-            "aboutShort": this.state.descInputValue,
-            "about": this.state.descInputValue,
-            "avatarUrl": formData,
-            "email": this.props.user.email
-        }
-        console.log(inputData);
-        apiService.put(inputData)
+        // const inputData = {
+        //     "userId": this.props.user.id,
+        //     "name": this.state.nameInputValue,
+        //     "aboutShort": this.state.descInputValue,
+        //     "about": this.state.descInputValue,
+        //     "avatarUrl": formData,
+        //     "email": this.props.user.email
+        // }
+        // console.log(inputData);
+        // console.log(this.state.file);
+        // const data = {
+        //     "file": this.state.file
+        // }
+        apiService.upload(formData)
             .then((response) => {
-                console.log(response);
+                console.log(response.json());
             })
+        // console.log(data);
+        // apiService.put(inputData)
+        //     .then((response) => {
+        //         console.log(response);
+        //     })
     }
     render() {
         return (

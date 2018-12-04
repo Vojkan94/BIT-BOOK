@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import { postService } from '../../../../services/postService'
-import { Link } from 'react-router-dom'
 import { validateService } from '../../../../services/validationService';
 
 class NewVideoModal extends Component {
@@ -48,34 +47,30 @@ class NewVideoModal extends Component {
                 console.log(response);
             })
 
-
-
-
     }
 
     render() {
         return (
             <Fragment>
-                <div className="modal fade" id="videoModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLongTitle">New video post</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <p>Video link</p>
-                                <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
-                                {this.state.error ? <p className="text-danger mt-1">Please enter valid YouTube link.</p> : null}
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" onClick={this.collectVideoInput} disabled={this.state.validInput} className="btn btn-primary">POST</button>
-                            </div>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLongTitle">New video post</h5>
+                            <button type="button" className="close" onClick={this.props.closeModal} data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <p>Video link</p>
+                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
+                            {this.state.error ? <p className="text-danger mt-1">Please enter valid YouTube link.</p> : null}
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" onClick={this.collectVideoInput} disabled={this.state.validInput} className="btn btn-primary">POST</button>
                         </div>
                     </div>
                 </div>
+
             </Fragment >
         );
     };

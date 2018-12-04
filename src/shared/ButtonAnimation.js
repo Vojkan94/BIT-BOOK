@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import $ from 'jquery';
 
-const NewImageModal = () => (
+const buttonAnimation = () => (
     $(function () {
         $(".fab,.backdrop").click(function () {
             if ($(".backdrop").is(":visible")) {
@@ -26,9 +26,9 @@ const NewImageModal = () => (
                         }, 125);
                 });
             }
-        });
+        })
     })
 
 )
 
-export default NewImageModal
+export default buttonAnimation
