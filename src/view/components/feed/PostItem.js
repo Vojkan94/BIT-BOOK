@@ -5,19 +5,17 @@ import PostVideo from './PostVideo';
 
 import { postService } from '../../../services/postService';
 
-const PostItem = ({ post, userId }) => {
+const PostItem = ({ post, userId, loadPosts }) => {
     const { type } = post
 
     const deletePost = () => {
-
-
-        // Cccccccccccccccccc
         postService
             .postDelete(`posts/${post.id}`)
-        // .then((response) => {
-        //     response.status === 200
-        //     this.props.loadPosts()
-        // })
+            .then((response) => {
+                if (response.status === 200) {
+                    loadPosts()
+                }
+            })
     }
     if (!userId) { return null }
     let listItem;

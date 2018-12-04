@@ -16,11 +16,11 @@ class PostList extends Component {
             userId: null,
             selectValue: "all"
         }
+        this.loadPosts = this.loadPosts.bind(this)
     }
 
     componentDidMount() {
-        postService.fetchPosts()
-            .then((posts) => this.setState({ posts }));
+        this.loadPosts();
 
         userService.fetchMyProfile()
             .then(((user) => {
@@ -29,25 +29,23 @@ class PostList extends Component {
                     userId: user.id
                 })
             }))
-
-
     }
-
+    loadPosts() {
+        postService.fetchPosts()
+            .then((posts) => this.setState({ posts }));
+    }
     changeHandler = (event) => {
         this.setState({
             selectValue: event.target.value
-
         })
     }
-
     render() {
-
         const postList = this.state.posts.filter((post) => {
             if (this.state.selectValue === 'all') {
                 return true
             }
             return post.type === this.state.selectValue;
-        }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} />)
+        }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} loadPosts={this.loadPosts} />)
         return (
             <>
                 <div className="row">

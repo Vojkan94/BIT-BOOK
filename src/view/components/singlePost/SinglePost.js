@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PostItem from '../feed/PostItem';
 import CommentList from './comment/CommentList';
-import { postService } from '../../../services/postService'
-import { userService } from '../../../services/userService'
+import { postService } from '../../../services/postService';
+import history from '../../../shared/history.js'
 
 class SinglePost extends Component {
     constructor(props) {
@@ -12,12 +12,14 @@ class SinglePost extends Component {
             post: null,
             userId: null
         }
+        this.loadPosts = this.loadPosts.bind(this)
     }
 
     componentDidMount() {
         const type = this.props.match.params.type;
-        const postID = this.props.match.params.postId;
-        postService.fetchSinglePost(type, postID)
+        const postId = this.props.match.params.postId;
+
+        postService.fetchSinglePost(type, postId)
             .then((post) => {
                 this.setState({ post })
             })
@@ -25,8 +27,9 @@ class SinglePost extends Component {
         this.setState({
             userId: localStorage.getItem("userId")
         })
-
-
+    }
+    loadPosts() {
+        history.goBack()
     }
 
     render() {
@@ -36,7 +39,7 @@ class SinglePost extends Component {
         return (
             <>
                 <div className="col-8 offset-md-2">
-                    <PostItem post={this.state.post} userId={this.state.userId} />
+                    <PostItem post={this.state.post} userId={this.state.userId} loadPosts={this.loadPosts} />
                     <CommentList postId={this.props.match.params.postId} />
                 </div>
             </>

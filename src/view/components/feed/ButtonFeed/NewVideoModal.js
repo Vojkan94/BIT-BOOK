@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { postService } from '../../../../services/postService'
-import { Link } from 'react-router-dom'
+import { postService } from '../../../../services/postService';
 import { validateService } from '../../../../services/validationService';
 
 class NewVideoModal extends Component {

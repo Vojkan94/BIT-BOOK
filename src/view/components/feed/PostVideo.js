@@ -9,7 +9,7 @@ const PostVideo = ({ post, deletePost, userId }) => {
   }
   return (
     <div className="card container pt-2 mt-2 mb-2">
-      {userId == post.userId
+      {parseInt(userId) === post.userId
         ? <div className="card-body p-0 m-2">
           <PostDelete deletePost={deletePost} />
         </div>

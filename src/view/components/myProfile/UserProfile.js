@@ -16,10 +16,8 @@ class UserProfile extends Component {
 
     componentDidMount() {
         const userId = this.props.match.params.userId;
-
         userService.fetchSingleUser(userId)
             .then(((user) => {
-                console.log(user);
                 this.setState({ user })
             }))
 
