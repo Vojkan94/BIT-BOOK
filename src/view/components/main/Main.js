@@ -5,6 +5,7 @@ import SinglePost from '../singlePost/SinglePost';
 import { MyProfile } from '../myProfile/MyProfilePage'
 import { UserProfile } from '../myProfile/UserProfile'
 import UserList from '../people/UserList';
+import WelcomePage from '../welcome/WelcomePage'
 
 const Main = () => {
     return (
@@ -14,7 +15,8 @@ const Main = () => {
                 <Route path="/profile/:userId" component={UserProfile} />
                 <Route path="/myprofile" component={MyProfile} />
                 <Route path="/people" component={UserList} />
-                <Route path="/" component={PostList} />
+                <Route path="/feed" component={PostList} />
+                <Route path="/" component={WelcomePage} />
             </Switch>
         </main>
     )
