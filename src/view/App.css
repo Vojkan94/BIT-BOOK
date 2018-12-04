@@ -40,7 +40,7 @@ input[type="file"] {
 .modal-main {
   position:fixed;
   background: white;
-  border-radius:  20px;
+  border-radius:  10px;
   width: 60%;
   height: auto;
   top:50%;
