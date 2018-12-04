@@ -5,6 +5,7 @@ import UserSearch from './UserSearch';
 import { userService } from '../../../services/userService';
 
 import './css/people.css'
+import NoResault from './UserSearchNoResults'
 
 
 class UserList extends Component {
@@ -40,7 +41,8 @@ class UserList extends Component {
     render() {
         const userList = this.state.usersSearch.length
             ? this.state.usersSearch.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
-            : this.state.users.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
+            : <NoResault />
+        // : this.state.users.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
 
         return (
             <>
