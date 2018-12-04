@@ -74,6 +74,7 @@ class ApiService {
         return fetch(`${BITBOOK_API_BASE_URL}/upload`, option)
     }
 
+
 }
 export const apiService = new ApiService();
 
