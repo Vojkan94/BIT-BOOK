@@ -1,12 +1,14 @@
 import React, { Fragment, Component } from 'react';
 import { postService } from '../../../../services/postService'
-
+import { validateService } from '../../../../services/validationService';
 class NewTextModal extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            inputValue: ""
+            inputValue: "",
+            validInput: true,
+            error: false
         }
         this.changeInput = this.changeInput.bind(this);
         this.collectTextInput = this.collectTextInput.bind(this);
@@ -14,8 +16,13 @@ class NewTextModal extends Component {
 
     changeInput(event) {
         this.setState({
-            inputValue: event.target.value
+            inputValue: event.target.value,
 
+        })
+        const valid = validateService.validateTextPost(event.target.value.trim());
+        this.setState({
+            validInput: !valid,
+            error: !valid
         })
     }
     collectTextInput() {
@@ -32,7 +39,10 @@ class NewTextModal extends Component {
 
         postService.postData(type, inputData)
             .then((response) => {
-                console.log(response);
+                if (response === true) {
+                    this.props.closeModal();
+                    this.props.loadPosts();
+                }
             })
     }
     render() {
@@ -48,10 +58,11 @@ class NewTextModal extends Component {
                         </div>
                         <div className="modal-body">
                             <p>Text</p>
-                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
+                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
+                            {this.state.error ? <p className="text-danger mt-1">Text can't include special characters.</p> : null}
                         </div>
                         <div className="modal-footer">
-                            <button type="button" onClick={this.collectTextInput} className="btn btn-primary">POST</button>
+                            <button type="button" onClick={this.collectTextInput} disabled={this.state.validInput} className="btn btn-primary">POST</button>
                         </div>
                     </div>
                 </div>

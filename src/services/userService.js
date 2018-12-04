@@ -26,6 +26,24 @@ class UserService {
                 return new User(userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount);
             }))
     }
+
+    uploadUserImage(file) {
+        return apiService.upload(file);
+    }
+
+    editUserProfile(inputData) {
+        return apiService.put(inputData);
+    }
+
+    createUser(inputData) {
+        return apiService.authSystem('register', inputData);
+    }
+
+    loginUser(inputData) {
+        return apiService.authSystem('login', inputData);
+    }
+
+
 }
 
 export const userService = new UserService();

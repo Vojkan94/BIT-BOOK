@@ -44,7 +44,10 @@ class NewVideoModal extends Component {
 
         postService.postData(type, inputData)
             .then((response) => {
-                console.log(response);
+                if (response === true) {
+                    this.props.closeModal();
+                    this.props.loadPosts();
+                }
             })
 
     }
@@ -62,7 +65,7 @@ class NewVideoModal extends Component {
                         </div>
                         <div className="modal-body">
                             <p>Video link</p>
-                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12" />
+                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
                             {this.state.error ? <p className="text-danger mt-1">Please enter valid YouTube link.</p> : null}
                         </div>
                         <div className="modal-footer">
