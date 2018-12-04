@@ -55,7 +55,6 @@ class EditProfileModal extends Component {
             "email": this.props.user.email
         }
 
-        console.log(inputData);
 
         userService.editUserProfile(inputData)
             .then((response) => {
