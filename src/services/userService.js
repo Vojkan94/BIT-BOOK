@@ -34,6 +34,10 @@ class UserService {
     editUserProfile(inputData) {
         return apiService.put(inputData);
     }
+
+    createUser(inputData) {
+        return apiService.post('register', inputData);
+    }
 }
 
 export const userService = new UserService();
