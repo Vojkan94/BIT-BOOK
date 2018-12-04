@@ -29,7 +29,7 @@ class CommentList extends Component {
         if (!this.state.comments.length) {
             return (
                 <>
-                    <CommentInput postId={this.props.postId} />
+                    <CommentInput postId={this.props.postId} loadComments={this.loadComments} />
                     <p className="mt-3 ml-auto mr-auto"> There are no comments...</p>
                 </>
             )
