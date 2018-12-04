@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostItem from './PostItem';
 import PostFilter from './PostFilter';
+import ScreenLoading from '../ScreenLoading/ScreenLoading';
 
 import { postService } from '../../../services/postService';
 import { userService } from '../../../services/userService';
@@ -40,12 +41,18 @@ class PostList extends Component {
         })
     }
     render() {
-        const postList = this.state.posts.filter((post) => {
-            if (this.state.selectValue === 'all') {
-                return true
-            }
-            return post.type === this.state.selectValue;
-        }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} loadPosts={this.loadPosts} />)
+        let postList;
+        if (!this.state.posts.length) {
+            postList = <ScreenLoading />
+        }
+        else {
+            postList = this.state.posts.filter((post) => {
+                if (this.state.selectValue === 'all') {
+                    return true
+                }
+                return post.type === this.state.selectValue;
+            }).map((post) => <PostItem key={post.id} post={post} userId={this.state.userId} loadPosts={this.loadPosts} />)
+        }
         return (
             <>
                 <div className="row">

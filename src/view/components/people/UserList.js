@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import UserItem from './UserItem';
 import { Link } from 'react-router-dom'
-import UserSearch from './UserSearch';
 import { userService } from '../../../services/userService';
 
+import UserItem from './UserItem';
+import UserSearch from './UserSearch';
+import NoResults from './UserSearchNoResults';
+import ScreenLoading from '../ScreenLoading/ScreenLoading';
+
+
 import './css/people.css'
-import NoResault from './UserSearchNoResults'
 
 
 class UserList extends Component {
@@ -39,13 +42,21 @@ class UserList extends Component {
 
 
     render() {
-        const userList = this.state.usersSearch.length
-            ? this.state.usersSearch.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
-            : <NoResault />
+        let userList;
+        if (this.state.users.length) {
+            userList = this.state.usersSearch.length
+                ? this.state.usersSearch.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
+                : <NoResults />
+        } else {
+            userList = <ScreenLoading />
+        }
+
         // : this.state.users.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
+
 
         return (
             <>
+
                 <UserSearch onChangeSearch={this.onChangeSearch} />
                 <div className='user-list'>
                     {userList}
