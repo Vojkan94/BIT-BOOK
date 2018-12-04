@@ -49,11 +49,12 @@ class EditProfileModal extends Component {
         const inputData = {
             "userId": this.props.user.id,
             "name": this.state.nameInputValue,
-            "aboutShort": this.state.descInputValue,
-            "about": this.state.descInputValue,
+            "aboutShort": this.state.descInputValue || 'about',
+            "about": this.state.descInputValue || 'about',
             "avatarUrl": link,
             "email": this.props.user.email
         }
+
 
         userService.editUserProfile(inputData)
             .then((response) => {

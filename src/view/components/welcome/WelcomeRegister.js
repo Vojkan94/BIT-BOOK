@@ -42,7 +42,6 @@ class WelcomeRegister extends Component {
         }
         userService.createUser(inputData)
             .then((response) => {
-                console.log(response);
             })
     }
 
