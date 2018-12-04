@@ -66,36 +66,34 @@ class EditProfileModal extends Component {
     }
     render() {
         return (
-            <div className="modal-body">
-                <div className="container-fluid">
-                    <div className="row">
-                        <h3 className="col-md-4">Update Profile</h3>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 ">
-                            <div className="card mt-3 profile-image-upload-border">
-                                <img className="card-img-top" src={this.state.currentImg} alt="Card cap" />
-                                <label className="image-file-upload">
+            <div class="" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update profile</h5>
+
+                        </div>
+                        <div class="modal-body row">
+                            <div className="col-4">
+                                <img className="col-12 p-0 mt-2" src={this.state.currentImg} alt="Card cap" />
+                                <label className="btn btn-primary col-12">
                                     <input type="file" onChange={this.changeImgInput} />
                                     UPLOAD PHOTO
                                 </label>
                             </div>
+                            <div className="col-8">
+                                <label htmlFor="inputName">Name</label>
+                                <input type="text" value={this.state.nameInputValue} onChange={this.changeNameInput} id="#inputName" className="form-control" />
+
+                                <label for="exampleFormControlTextarea1" className="mt-4">User description</label>
+                                <textarea class="form-control" onChange={this.changeDescInput} value={this.state.descInputValue} rows="6"></textarea>
+
+                            </div>
+
                         </div>
-                        <div className="col-9 mt-10">
-                            <label htmlFor="inputName">Name</label>
-                            <input type="text" value={this.state.nameInputValue} onChange={this.changeNameInput} id="#inputName" className="form-control" />
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12">
-                            <label htmlFor="inputDescription">User Description</label>
-                            <input type="text" onChange={this.changeDescInput} value={this.state.descInputValue} id="#inputDescription" className="form-control" />
-                        </div>
-                    </div>
-                    <div className="row mt-5">
-                        <div className="col-4 ml-auto" >
-                            <button type="button" onClick={this.editUserHandler} className="btn btn-primary col-5 mr-1 p-1">UPDATE</button>
-                            <button type="button" onClick={this.props.closeModal} className="btn btn-primary col-5 p-1">CLOSE</button>
+                        <div class="modal-footer">
+                            <button type="button" onClick={this.editUserHandler} className="btn btn-primary">UPDATE</button>
+                            <button type="button" onClick={this.props.closeModal} className="btn btn-secondary">CLOSE</button>
                         </div>
                     </div>
                 </div>
