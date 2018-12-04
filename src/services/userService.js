@@ -26,7 +26,6 @@ class UserService {
                 return new User(userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount);
             }))
     }
-
 }
 
 export const userService = new UserService();

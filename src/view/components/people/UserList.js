@@ -29,7 +29,7 @@ class UserList extends Component {
     }
     onChangeSearch(inputValue) {
         const searchedUsers = this.state.users.filter(user =>
-            user.name.includes(inputValue.toLowerCase())
+            user.name.toLowerCase().includes(inputValue.toLowerCase())
         );
         this.setState({
             usersSearch: searchedUsers
