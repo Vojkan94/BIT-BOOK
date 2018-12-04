@@ -3,18 +3,22 @@ const dateFormat = (datePost) => {
     let date = new Date(datePost);
 
     if (datePost === null) {
-        return
+        return 'No posts yet'
     }
-    if (date === today) {
+    if (date.getDate() === today) {
         let hour = date.getHours();
         let min = date.getMinutes();
-
+        if (min.toString().length === 1) {
+            min = `${min}0`
+        }
         return `Last post at ${hour}:${min}`
     } else {
-        let dateOfPost = date.toLocaleDateString();
+        let dateOfPost = date.toLocaleDateString('en-GB');
         let hour = date.getHours();
         let min = date.getMinutes();
-
+        if (min.toString().length === 1) {
+            min = `${min}0`
+        }
         return `Last post at ${dateOfPost} - ${hour}:${min}`
     }
 }
