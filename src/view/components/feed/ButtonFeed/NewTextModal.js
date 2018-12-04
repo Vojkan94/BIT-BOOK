@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import { postService } from '../../../../services/postService'
-import { Link } from 'react-router-dom'
+import { postService } from '../../../../services/postService';
 class NewTextModal extends Component {
     constructor(props) {
         super(props)
@@ -37,8 +36,6 @@ class NewTextModal extends Component {
                 console.log(response);
             })
 
-
-        // window.location.href = "http://localhost:3000/";
 
     }
     render() {

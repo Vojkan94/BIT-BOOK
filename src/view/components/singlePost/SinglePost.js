@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PostItem from '../feed/PostItem';
 import CommentList from './comment/CommentList';
-import { postService } from '../../../services/postService'
-import { userService } from '../../../services/userService'
+import { postService } from '../../../services/postService';
 
 class SinglePost extends Component {
     constructor(props) {

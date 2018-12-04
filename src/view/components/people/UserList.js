@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import UserSearch from './UserSearch';
 import { userService } from '../../../services/userService';
 
+import './css/people.css'
+
 
 class UserList extends Component {
     constructor(props) {
@@ -43,7 +45,9 @@ class UserList extends Component {
         return (
             <>
                 <UserSearch onChangeSearch={this.onChangeSearch} />
-                {userList}
+                <div className='user-list'>
+                    {userList}
+                </div>
             </>
         )
     }

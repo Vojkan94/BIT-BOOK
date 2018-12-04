@@ -17,7 +17,6 @@ class PostList extends Component {
             selectValue: "all"
         }
     }
-
     componentDidMount() {
         postService.fetchPosts()
             .then((posts) => this.setState({ posts }));
@@ -29,19 +28,13 @@ class PostList extends Component {
                     userId: user.id
                 })
             }))
-
-
     }
-
     changeHandler = (event) => {
         this.setState({
             selectValue: event.target.value
-
         })
     }
-
     render() {
-
         const postList = this.state.posts.filter((post) => {
             if (this.state.selectValue === 'all') {
                 return true

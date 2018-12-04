@@ -18,7 +18,6 @@ class CommentList extends Component {
                 this.setState({
                     comments
                 })
-                console.log(this.state.comments);
             })
 
     }

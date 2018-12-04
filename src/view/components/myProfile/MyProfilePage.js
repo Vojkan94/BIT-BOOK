@@ -16,7 +16,6 @@ class MyProfile extends Component {
 
         userService.fetchMyProfile()
             .then(((user) => {
-                console.log(user);
                 this.setState({ user })
             }))
 
@@ -27,7 +26,7 @@ class MyProfile extends Component {
         return (
             <>
                 <MyProfilePicAndName name={user.name} img={user.img} />
-                < MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
+                <MyProfileDesc about={user.about} aboutShort={user.aboutShort} />
                 <MyProfileCount commentsCount={user.commentsCount} postsCount={user.postsCount} />
             </>
         )

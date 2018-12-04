@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import $ from 'jquery';
 
 const NewImageModal = () => (

@@ -7,7 +7,6 @@ class UserService {
         return apiService.get('users')
             .then((userObj) => userObj.map((user) => {
                 const { id, name, aboutShort, lastPostDate, avatarUrl } = user;
-
                 return new User(id, name, aboutShort, lastPostDate, avatarUrl);
             }))
     };
@@ -23,7 +22,6 @@ class UserService {
     fetchSingleUser(userId) {
         return apiService.get(`users/${userId}`)
             .then(((user) => {
-                console.log(user);
                 const { userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount } = user;
                 return new User(userId, name, aboutShort, lastPostDate, avatarUrl, email, about, postsCount, commentsCount);
             }))

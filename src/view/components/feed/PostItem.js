@@ -9,14 +9,13 @@ const PostItem = ({ post, userId }) => {
     const { type } = post
 
     const deletePost = () => {
-
-
         // Cccccccccccccccccc
         postService
             .postDelete(`posts/${post.id}`)
         // .then((response) => {
-        //     response.status === 200
-        //     this.props.loadPosts()
+        //     console.log(response);
+        //     // response.status === 200
+        //     // this.props.loadPosts()
         // })
     }
     if (!userId) { return null }
