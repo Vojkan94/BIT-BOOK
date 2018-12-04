@@ -17,9 +17,9 @@ class SinglePost extends Component {
 
     componentDidMount() {
         const type = this.props.match.params.type;
-        const postID = this.props.match.params.postId;
+        const postId = this.props.match.params.postId;
 
-        postService.fetchSinglePost(type, postID)
+        postService.fetchSinglePost(type, postId)
             .then((post) => {
                 this.setState({ post })
             })
