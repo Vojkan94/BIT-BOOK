@@ -36,8 +36,14 @@ class UserService {
     }
 
     createUser(inputData) {
-        return apiService.post('register', inputData);
+        return apiService.authSystem('register', inputData);
     }
+
+    loginUser(inputData) {
+        return apiService.authSystem('login', inputData);
+    }
+
+
 }
 
 export const userService = new UserService();

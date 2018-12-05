@@ -9,7 +9,7 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+                'SessionId': sessionStorage.getItem('sessionId')
             }
         }
         return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
@@ -23,7 +23,7 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+                'SessionId': sessionStorage.getItem('sessionId')
             },
             body: JSON.stringify(inputData)
         }
@@ -38,7 +38,7 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+                'SessionId': sessionStorage.getItem('sessionId')
             }
         }
         return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
@@ -51,7 +51,7 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE'
+                'SessionId': sessionStorage.getItem('sessionId')
             },
             body: JSON.stringify(inputData)
         }
@@ -66,12 +66,25 @@ class ApiService {
             method: 'POST',
             headers: {
                 'Key': 'bitbookdev',
-                'SessionId': '2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE',
+                'SessionId': sessionStorage.getItem('sessionId'),
                 'mimeType': "multipart/form-data"
             },
             body: formData
         }
         return fetch(`${BITBOOK_API_BASE_URL}/upload`, option)
+    }
+
+    authSystem(queryString, inputData) {
+        const option = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Key': 'bitbookdev'
+            },
+            body: JSON.stringify(inputData)
+        }
+        return fetch(`${BITBOOK_API_BASE_URL}/${queryString}`, option)
+            .then((response) => response.json())
     }
 
 
