@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { MyProfilePicAndName } from './MyProfilePicAndName';
 import { MyProfileDesc } from './MyProfileDesc';
 import { MyProfileCount } from './MyProfileCount';
@@ -14,7 +15,6 @@ class UserProfile extends Component {
             open: false
         }
     }
-
     componentDidMount() {
         const userId = this.props.match.params.userId;
         userService.fetchSingleUser(userId)
@@ -22,7 +22,6 @@ class UserProfile extends Component {
                 this.setState({ user })
             }))
     }
-
     render() {
         if (!this.state.user) { return null }
         const { user } = this.state;
