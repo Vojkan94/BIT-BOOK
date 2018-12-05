@@ -3,6 +3,7 @@ import CommentItem from './CommentItem';
 import CommentInput from './CommentInput';
 import { postService } from '../../../../services/postService';
 import { userService } from '../../../../services/userService';
+import { resolve } from 'path';
 
 class CommentList extends Component {
     constructor(props) {
@@ -11,34 +12,36 @@ class CommentList extends Component {
         this.state = {
             comments: [],
             users: [],
-            commentUsers: []
+            commentUsers: [],
+
         }
-        this.loadComments = this.loadComments.bind(this);
+
     }
     loadComments = () => {
-        postService.fetchComments(this.props.postId)
+
+        return postService.fetchComments(this.props.postId)
             .then((comments) => {
                 this.setState({
                     comments
                 })
-                this.loadUsers();
             })
-
     }
 
+
+
+
     loadUsers = () => {
-        userService.fetchUsers()
+        return userService.fetchUsers()
             .then((users) => {
                 this.setState({
                     users
                 })
-                this.getComments();
             })
     }
 
 
-    getComments = () => {
 
+    getComments = () => {
         const userComments = this.state.users.filter((user) => {
             const comments = this.state.comments;
             let valid;
@@ -52,11 +55,15 @@ class CommentList extends Component {
         this.setState({
             commentUsers: userComments
         })
-        console.log(userComments);
-
     }
     componentDidMount() {
-        this.loadComments();
+        const commentPromise = this.loadComments();
+        const userPromise = this.loadUsers();
+
+        Promise.all([commentPromise, userPromise])
+            .then((values) => {
+                this.getComments();
+            })
 
     }
 
