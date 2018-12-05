@@ -36,4 +36,4 @@ class UserProfile extends Component {
     }
 }
 
-export { UserProfile }
+export default UserProfile;

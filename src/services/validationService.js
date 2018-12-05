@@ -34,6 +34,5 @@ class ValidationService {
     }
 
 }
-
 export const validateService = new ValidationService();
 

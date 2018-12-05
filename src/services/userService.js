@@ -42,8 +42,6 @@ class UserService {
     loginUser(inputData) {
         return apiService.authSystem('login', inputData);
     }
-
-
 }
 
 export const userService = new UserService();

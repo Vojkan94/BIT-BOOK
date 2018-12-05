@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import PostCountComment from "./PostCountComment";
 import PostDelete from "./PostDelete";
 
@@ -14,7 +15,7 @@ const PostImage = ({ post, deletePost, userId }) => {
       }
       <Link to={`post/imageposts/${post.id}`}>
         <div className="card-body p-0 m-2">
-          <img className="card-img mb-3" src={post.content} alt="Card cap" />
+          <img className="card-img mb-3" alt="Card cap" src={post.content} />
           <PostCountComment postType={post.type} numComment={post.commentsNum} />
         </div>
       </Link>

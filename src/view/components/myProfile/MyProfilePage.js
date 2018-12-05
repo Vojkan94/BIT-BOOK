@@ -51,4 +51,4 @@ class MyProfile extends Component {
     }
 }
 
-export { MyProfile }
+export default MyProfile;
