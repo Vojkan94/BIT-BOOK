@@ -12,7 +12,6 @@ class ValidationService {
             }
         }
     }
-
     validateImagePost(url) {
         if (url.startsWith("http://") || url.startsWith("https://")) {
             return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -20,17 +19,14 @@ class ValidationService {
             return false;
         }
     }
-
     validateTextPost(text) {
-        const regex = /^[a-zA-Z0-9 ]+$/;
+        const regex = /^[a-zA-Z0-9 .,]+$/;
         return text.match(regex) !== null;
     }
-
     validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return email.match(re)
     }
-
 }
 
 export const validateService = new ValidationService();

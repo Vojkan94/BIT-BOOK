@@ -39,7 +39,6 @@ class CommentInput extends Component {
         if (event.key === 'Enter') {
             this.postComment();
         }
-
     }
 
 
