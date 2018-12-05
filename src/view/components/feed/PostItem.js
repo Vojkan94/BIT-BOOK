@@ -7,7 +7,6 @@ import { postService } from '../../../services/postService';
 
 const PostItem = ({ post, userId, loadPosts }) => {
     const { type } = post
-
     const deletePost = () => {
         postService
             .postDelete(`posts/${post.id}`)
@@ -28,15 +27,11 @@ const PostItem = ({ post, userId, loadPosts }) => {
     if (type === "video") {
         listItem = <PostVideo post={post} deletePost={deletePost} userId={userId} />
     }
-
-
-
     return (
         <>
             {listItem}
         </>
     )
 }
-
-export default PostItem
+export default PostItem;
 

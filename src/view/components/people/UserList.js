@@ -39,8 +39,6 @@ class UserList extends Component {
             usersSearch: searchedUsers
         });
     };
-
-
     render() {
         let userList;
         if (this.state.users.length) {
@@ -50,13 +48,8 @@ class UserList extends Component {
         } else {
             userList = <ScreenLoading />
         }
-
-        // : this.state.users.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
-
-
         return (
             <>
-
                 <UserSearch onChangeSearch={this.onChangeSearch} />
                 <div className='user-list'>
                     {userList}

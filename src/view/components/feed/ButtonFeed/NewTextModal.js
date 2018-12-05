@@ -45,6 +45,13 @@ class NewTextModal extends Component {
                 }
             })
     }
+    onKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            if (!this.state.validInput) {
+                this.collectTextInput();
+            }
+        }
+    }
     render() {
         return (
             <Fragment>
@@ -58,7 +65,7 @@ class NewTextModal extends Component {
                         </div>
                         <div className="modal-body">
                             <p>Text</p>
-                            <input onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
+                            <input onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
                             {this.state.error ? <p className="text-danger mt-1">Text can't include special characters.</p> : null}
                         </div>
                         <div className="modal-footer">

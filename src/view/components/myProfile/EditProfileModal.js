@@ -67,14 +67,14 @@ class EditProfileModal extends Component {
     }
     render() {
         return (
-            <div class="" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Update profile</h5>
+            <div className="" tabIndex="-1" role="dialog">
+                <div className="modal-dialog modal-lg" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Update profile</h5>
 
                         </div>
-                        <div class="modal-body row">
+                        <div className="modal-body row">
                             <div className="col-4">
                                 <img className="col-12 p-0 mt-2" src={this.state.currentImg} alt="Card cap" />
                                 <label className="btn btn-primary col-12">
@@ -86,13 +86,13 @@ class EditProfileModal extends Component {
                                 <label htmlFor="inputName">Name</label>
                                 <input type="text" value={this.state.nameInputValue} onChange={this.changeNameInput} id="#inputName" className="form-control" />
 
-                                <label for="exampleFormControlTextarea1" className="mt-4">User description</label>
-                                <textarea class="form-control" onChange={this.changeDescInput} value={this.state.descInputValue} rows="6"></textarea>
+                                <label htmlFor="exampleFormControlTextarea1" className="mt-4">User description</label>
+                                <textarea className="form-control" onChange={this.changeDescInput} value={this.state.descInputValue} rows="6"></textarea>
 
                             </div>
 
                         </div>
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                             <button type="button" onClick={this.editUserHandler} className="btn btn-primary">UPDATE</button>
                             <button type="button" onClick={this.props.closeModal} className="btn btn-secondary">CLOSE</button>
                         </div>
