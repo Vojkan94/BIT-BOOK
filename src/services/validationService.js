@@ -27,6 +27,12 @@ class ValidationService {
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return email.match(re) !== null;
     }
+
+    validateRegister(text) {
+        const regex = /^[a-zA-Z0-9 ]+$/;
+        return text.match(regex) !== null;
+    }
+
 }
 
 export const validateService = new ValidationService();
