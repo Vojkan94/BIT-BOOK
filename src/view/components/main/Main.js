@@ -8,6 +8,8 @@ import UserList from '../people/UserList';
 import WelcomePage from '../welcome/WelcomePage'
 
 const Main = () => {
+    const sessionId = sessionStorage.getItem('sessionId');
+    const home = sessionId ? PostList : WelcomePage;
     return (
         <main className="container mt-5">
             <Switch>
@@ -15,8 +17,8 @@ const Main = () => {
                 <Route path="/profile/:userId" component={UserProfile} />
                 <Route path="/myprofile" component={MyProfile} />
                 <Route path="/people" component={UserList} />
-                <Route path="/feed" component={PostList} />
-                <Route path="/" component={WelcomePage} />
+                <Route path="/feed" component={home} />
+                <Route path="/" component={home} />
             </Switch>
         </main>
     )

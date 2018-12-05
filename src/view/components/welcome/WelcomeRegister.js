@@ -58,6 +58,11 @@ class WelcomeRegister extends Component {
                 }
             })
     }
+    onKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.registerUser();
+        }
+    }
     render() {
         const isActive = this.props.isActive ? 'active' : '';
         return (
@@ -65,19 +70,36 @@ class WelcomeRegister extends Component {
                 <div className="row">
                     <form className="col-12 mt-1" id="loginForm">
                         <div className="form-group">
-                            <input type="text" value={this.state.nameInput} onChange={this.changeNameInput} className="form-control mt-3" id="registerName" placeholder="Enter Name" />
+                            <input type="text" className="form-control mt-3" id="registerName" placeholder="Enter Name"
+                                value={this.state.nameInput}
+                                onChange={this.changeNameInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="text" value={this.state.usernameInput} onChange={this.changeUsernameInput} className="form-control mt-3" id="registerUserName" placeholder="Enter Username" />
+                            <input type="text" className="form-control mt-3" id="registerUserName" placeholder="Enter Username"
+                                value={this.state.usernameInput}
+                                onChange={this.changeUsernameInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="text" value={this.state.emailInput} onChange={this.changeEmailInput} className="form-control mt-3" id="registerEmail" placeholder="Enter Email" />
+                            <input type="text" className="form-control mt-3" id="registerEmail" placeholder="Enter Email"
+                                value={this.state.emailInput}
+                                onChange={this.changeEmailInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="password" value={this.state.passwordInput} onChange={this.changePasswordInput} className="form-control" id="registerPassword" placeholder="Enter Password" />
+                            <input type="password" className="form-control" id="registerPassword" placeholder="Enter Password"
+                                value={this.state.passwordInput}
+                                onChange={this.changePasswordInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <p className="text-danger">{this.state.error}</p>
-                        <button type="button" onClick={this.registerUser} className="btn btn-primary" id="registerButton">Register</button>
+                        <button type="button" className="btn btn-primary" id="registerButton"
+                            onClick={this.registerUser} > Register</button>
                     </form>
                 </div>
             </div>

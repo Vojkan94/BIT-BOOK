@@ -50,6 +50,11 @@ class WelcomeLogin extends Component {
                 }
             })
     }
+    onKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.loginUser();
+        }
+    }
     render() {
         const isActive = this.props.isActive ? 'active' : '';
         return (
@@ -57,10 +62,18 @@ class WelcomeLogin extends Component {
                 <div className="row">
                     <form className="col-12 mt-1">
                         <div className="form-group">
-                            <input type="text" value={this.state.usernameInput} onChange={this.changeUsernameInput} className="form-control mt-3" placeholder="Enter username" />
+                            <input type="text" className="form-control mt-3" placeholder="Enter username"
+                                onChange={this.changeUsernameInput}
+                                value={this.state.usernameInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <div className="form-group">
-                            <input type="password" value={this.state.passwordInput} onChange={this.changePasswordInput} className="form-control" placeholder="Enter Password" />
+                            <input type="password" className="form-control" placeholder="Enter Password"
+                                onChange={this.changePasswordInput}
+                                value={this.state.passwordInput}
+                                onKeyPress={this.onKeyPress}
+                            />
                         </div>
                         <p className="text-danger">{this.state.error}</p>
                         <button onClick={this.loginUser} type="button" className="btn btn-primary">Login</button>
