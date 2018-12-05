@@ -81,7 +81,12 @@ class WelcomeRegister extends Component {
     }
     onKeyPress = (event) => {
         if (event.key === 'Enter') {
-            this.registerUser();
+            const { errorName, errorUserName, errorEmail, errorPassword } = this.state
+            const isAllValid = (errorName && errorUserName && errorEmail && errorPassword) ? false : true;
+            if (!isAllValid) {
+                this.registerUser();
+            }
+
         }
     }
     render() {
