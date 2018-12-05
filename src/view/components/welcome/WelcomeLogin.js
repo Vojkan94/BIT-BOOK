@@ -9,40 +9,39 @@ class WelcomeLogin extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userNameInput: "",
-            passwordInput: "",
-            error: ""
+            usernameInput: '',
+            passwordInput: '',
+            error: ''
         }
+        this.changeUsernameInput = this.changeUsernameInput.bind(this);
+        this.changePasswordInput = this.changePasswordInput.bind(this);
+        this.loginUser = this.loginUser.bind(this);
     }
-    changeUserNameInput = (event) => {
+    changeUsernameInput(event) {
         this.setState({
-            userNameInput: event.target.value
+            usernameInput: event.target.value
         })
     }
-    changePasswordInput = (event) => {
+    changePasswordInput(event) {
         this.setState({
             passwordInput: event.target.value
         })
     }
 
-    loginUser = () => {
+    loginUser() {
         const inputData = {
-            "username": this.state.userNameInput,
-            "password": this.state.passwordInput
+            'username': this.state.usernameInput,
+            'password': this.state.passwordInput
         }
         userService.loginUser(inputData)
             .then((response) => {
-                console.log(response);
                 if (response.sessionId) {
                     sessionStorage.setItem('sessionId', response.sessionId);
                     this.setState({
                         error: ''
-
                     })
-                    console.log(history);
                     history.push('/feed');
                     history.go()
-
                 }
                 else {
                     this.setState({
@@ -51,17 +50,14 @@ class WelcomeLogin extends Component {
                 }
             })
     }
-
-
-
-
     render() {
+        const isActive = this.props.isActive ? 'active' : '';
         return (
-            <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+            <div className={`tab-pane fade show ${isActive}`} id="" role="tabpanel" aria-labelledby="nav-home-tab" >
                 <div className="row">
                     <form className="col-12 mt-1">
                         <div className="form-group">
-                            <input type="text" value={this.state.userNameInput} onChange={this.changeUserNameInput} className="form-control mt-3" placeholder="Enter username" />
+                            <input type="text" value={this.state.usernameInput} onChange={this.changeUsernameInput} className="form-control mt-3" placeholder="Enter username" />
                         </div>
                         <div className="form-group">
                             <input type="password" value={this.state.passwordInput} onChange={this.changePasswordInput} className="form-control" placeholder="Enter Password" />
