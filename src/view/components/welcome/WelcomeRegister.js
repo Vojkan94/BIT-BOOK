@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { userService } from '../../../services/userService';
-
+import { validateService } from '../../../services/validationService';
 
 class WelcomeRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameInput: '',
-            usernameInput: '',
-            emailInput: '',
-            passwordInput: '',
-            error: ''
+            nameInput: "",
+            userNameInput: "",
+            emailInput: "",
+            passwordInput: "",
+            errorName: false,
+            errorUserName: false,
+            errorEmail: false,
+            errorPassword: false,
+            validInput: true
         }
         this.changeNameInput = this.changeNameInput.bind(this);
         this.changeUsernameInput = this.changeUsernameInput.bind(this);
@@ -29,9 +33,11 @@ class WelcomeRegister extends Component {
             usernameInput: event.target.value
         })
     }
-    changeEmailInput(event) {
+    changeEmailInput = (event) => {
+        const valid = validateService.validateEmail(event.target.value);
         this.setState({
-            emailInput: event.target.value
+            emailInput: event.target.value,
+            errorEmail: !valid
         })
     }
     changePasswordInput(event) {
@@ -39,7 +45,8 @@ class WelcomeRegister extends Component {
             passwordInput: event.target.value
         })
     }
-    registerUser() {
+    registerUser = () => {
+
         const inputData = {
             'username': this.state.usernameInput,
             'password': this.state.passwordInput,
@@ -64,6 +71,8 @@ class WelcomeRegister extends Component {
         }
     }
     render() {
+        const { errorName, errorUserName, errorEmail, errorPassword } = this.state
+        const isAllValid = (errorName && errorUserName && errorEmail && errorPassword) ? false : true
         const isActive = this.props.isActive ? 'active' : '';
         return (
             <div className={`tab-pane fade show  ${isActive}`} role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -84,11 +93,14 @@ class WelcomeRegister extends Component {
                             />
                         </div>
                         <div className="form-group">
+
+
                             <input type="text" className="form-control mt-3" id="registerEmail" placeholder="Enter Email"
                                 value={this.state.emailInput}
                                 onChange={this.changeEmailInput}
                                 onKeyPress={this.onKeyPress}
                             />
+                            {this.state.errorEmail ? <p className="text-danger mt-1">Please enter valid e-mail address.</p> : null}
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="registerPassword" placeholder="Enter Password"
@@ -97,9 +109,10 @@ class WelcomeRegister extends Component {
                                 onKeyPress={this.onKeyPress}
                             />
                         </div>
+
+                        <button type="button" onClick={this.registerUser} disabled={isAllValid} className="btn btn-primary" id="registerButton">Register</button>
                         <p className="text-danger">{this.state.error}</p>
-                        <button type="button" className="btn btn-primary" id="registerButton"
-                            onClick={this.registerUser} > Register</button>
+
                     </form>
                 </div>
             </div>
