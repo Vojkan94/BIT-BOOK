@@ -14,7 +14,11 @@ class WelcomeRegister extends Component {
             errorUserName: false,
             errorEmail: false,
             errorPassword: false,
-            validInput: true
+            isNameValid: false,
+            isUserValid: false,
+            isEmailValid: false,
+            isPassValid: false,
+
         }
         this.changeNameInput = this.changeNameInput.bind(this);
         this.changeUsernameInput = this.changeUsernameInput.bind(this);
@@ -24,25 +28,35 @@ class WelcomeRegister extends Component {
     }
 
     changeNameInput(event) {
+        const valid = validateService.validateRegister(event.target.value);
         this.setState({
-            nameInput: event.target.value
+            nameInput: event.target.value,
+            errorName: valid,
+            isNameValid: !valid
         })
     }
     changeUsernameInput(event) {
+        const valid = validateService.validateRegister(event.target.value);
         this.setState({
-            usernameInput: event.target.value
+            usernameInput: event.target.value,
+            errorUserName: valid,
+            isUserValid: !valid
         })
     }
     changeEmailInput = (event) => {
         const valid = validateService.validateEmail(event.target.value);
         this.setState({
             emailInput: event.target.value,
-            errorEmail: !valid
+            errorEmail: valid,
+            isEmailValid: !valid
         })
     }
     changePasswordInput(event) {
+        const valid = event.target.value.length > 6
         this.setState({
-            passwordInput: event.target.value
+            passwordInput: event.target.value,
+            errorPassword: valid,
+            isPassValid: !valid
         })
     }
     registerUser = () => {
@@ -72,7 +86,9 @@ class WelcomeRegister extends Component {
     }
     render() {
         const { errorName, errorUserName, errorEmail, errorPassword } = this.state
+        const { isNameValid, isUserValid, isEmailValid, isPassValid } = this.state
         const isAllValid = (errorName && errorUserName && errorEmail && errorPassword) ? false : true
+
         const isActive = this.props.isActive ? 'active' : '';
         return (
             <div className={`tab-pane fade show  ${isActive}`} role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -84,6 +100,7 @@ class WelcomeRegister extends Component {
                                 onChange={this.changeNameInput}
                                 onKeyPress={this.onKeyPress}
                             />
+                            {isNameValid ? <p className="text-danger mt-1">Please enter valid name.</p> : null}
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control mt-3" id="registerUserName" placeholder="Enter Username"
@@ -91,16 +108,15 @@ class WelcomeRegister extends Component {
                                 onChange={this.changeUsernameInput}
                                 onKeyPress={this.onKeyPress}
                             />
+                            {isUserValid ? <p className="text-danger mt-1">Please enter valid username.</p> : null}
                         </div>
                         <div className="form-group">
-
-
                             <input type="text" className="form-control mt-3" id="registerEmail" placeholder="Enter Email"
                                 value={this.state.emailInput}
                                 onChange={this.changeEmailInput}
                                 onKeyPress={this.onKeyPress}
                             />
-                            {this.state.errorEmail ? <p className="text-danger mt-1">Please enter valid e-mail address.</p> : null}
+                            {isEmailValid ? <p className="text-danger mt-1">Please enter valid e-mail address.</p> : null}
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="registerPassword" placeholder="Enter Password"
@@ -108,6 +124,7 @@ class WelcomeRegister extends Component {
                                 onChange={this.changePasswordInput}
                                 onKeyPress={this.onKeyPress}
                             />
+                            {isPassValid ? <p className="text-danger mt-1">Please enter valid password (more then 6 characters).</p> : null}
                         </div>
 
                         <button type="button" onClick={this.registerUser} disabled={isAllValid} className="btn btn-primary" id="registerButton">Register</button>
