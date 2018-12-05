@@ -1,11 +1,12 @@
 import React from 'react';
-import PostList from './../feed/PostList'
 import { Route, Switch } from 'react-router-dom';
+
+import PostList from './../feed/PostList';
 import SinglePost from '../singlePost/SinglePost';
-import { MyProfile } from '../myProfile/MyProfilePage'
-import { UserProfile } from '../myProfile/UserProfile'
+import MyProfile from '../myProfile/MyProfilePage';
+import UserProfile from '../myProfile/UserProfile';
 import UserList from '../people/UserList';
-import WelcomePage from '../welcome/WelcomePage'
+import WelcomePage from '../welcome/WelcomePage';
 
 const Main = () => {
     const sessionId = sessionStorage.getItem('sessionId');
@@ -23,7 +24,4 @@ const Main = () => {
         </main>
     )
 }
-
-
-
-export default Main
+export default Main;

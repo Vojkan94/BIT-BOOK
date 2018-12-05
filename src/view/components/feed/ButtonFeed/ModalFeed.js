@@ -5,7 +5,7 @@ import { NewTextModal } from './NewTextModal';
 import { NewVideoModal } from './NewVideoModal';
 
 const ModalFeed = ({ closeModal, open, user, type, loadPosts }) => {
-    const showHideClassName = open ? "modal display-block" : "modal display-none";
+    const showHideClassName = open ? 'modal display-block' : 'modal display-none';
     let ChosenModal;
     switch (type) {
         case 'text':

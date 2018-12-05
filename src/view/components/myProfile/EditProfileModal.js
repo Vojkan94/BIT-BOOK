@@ -8,21 +8,27 @@ class EditProfileModal extends Component {
             nameInputValue: this.props.user.name,
             descInputValue: this.props.user.about,
             currentImg: this.props.user.img,
-            file: ""
+            file: ''
         }
+        this.changeNameInput = this.changeNameInput.bind(this);
+        this.changeDescInput = this.changeDescInput.bind(this);
+        this.changeImgInput = this.changeImgInput.bind(this);
+        this.uploadPicture = this.uploadPicture.bind(this);
+        this.editUserProfile = this.editUserProfile.bind(this);
+        this.editUserHandler = this.editUserHandler.bind(this);
     }
 
-    changeNameInput = (event) => {
+    changeNameInput(event) {
         this.setState({
             nameInputValue: event.target.value,
         })
     }
-    changeDescInput = (event) => {
+    changeDescInput(event) {
         this.setState({
             descInputValue: event.target.value,
         })
     }
-    changeImgInput = (event) => {
+    changeImgInput(event) {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.onloadend = () => {
@@ -33,9 +39,7 @@ class EditProfileModal extends Component {
         };
         reader.readAsDataURL(file);
     }
-
-
-    uploadPicture = () => {
+    uploadPicture() {
         userService.uploadUserImage(this.state.file)
             .then((response) => {
                 return response.json();
@@ -44,8 +48,7 @@ class EditProfileModal extends Component {
                 this.editUserProfile(link);
             })
     }
-
-    editUserProfile = (link = this.state.currentImg) => {
+    editUserProfile(link = this.state.currentImg) {
         const inputData = {
             "userId": this.props.user.id,
             "name": this.state.nameInputValue,
@@ -55,14 +58,13 @@ class EditProfileModal extends Component {
             "email": this.props.user.email
         }
 
-
         userService.editUserProfile(inputData)
             .then((response) => {
                 this.props.closeModal();
                 this.props.fetchData();
             })
     }
-    editUserHandler = () => {
+    editUserHandler() {
         this.state.file ? this.uploadPicture() : this.editUserProfile()
     }
     render() {
@@ -72,25 +74,25 @@ class EditProfileModal extends Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Update profile</h5>
-
                         </div>
                         <div className="modal-body row">
                             <div className="col-4">
                                 <img className="col-12 p-0 mt-2" src={this.state.currentImg} alt="Card cap" />
                                 <label className="btn btn-primary col-12">
-                                    <input type="file" onChange={this.changeImgInput} />
-                                    UPLOAD PHOTO
+                                    <input type="file" onChange={this.changeImgInput} /> UPLOAD PHOTO
                                 </label>
                             </div>
                             <div className="col-8">
                                 <label htmlFor="inputName">Name</label>
-                                <input type="text" value={this.state.nameInputValue} onChange={this.changeNameInput} id="#inputName" className="form-control" />
-
+                                <input type="text" id="#inputName" className="form-control"
+                                    value={this.state.nameInputValue}
+                                    onChange={this.changeNameInput} />
                                 <label htmlFor="exampleFormControlTextarea1" className="mt-4">User description</label>
-                                <textarea className="form-control" onChange={this.changeDescInput} value={this.state.descInputValue} rows="6"></textarea>
-
+                                <textarea className="form-control" rows="6"
+                                    onChange={this.changeDescInput}
+                                    value={this.state.descInputValue} >
+                                </textarea>
                             </div>
-
                         </div>
                         <div className="modal-footer">
                             <button type="button" onClick={this.editUserHandler} className="btn btn-primary">UPDATE</button>

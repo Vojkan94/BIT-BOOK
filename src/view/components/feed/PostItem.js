@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PostImage from './PostImage';
 import PostText from './PostText';
 import PostVideo from './PostVideo';
@@ -17,6 +18,7 @@ const PostItem = ({ post, userId, loadPosts }) => {
             })
     }
     if (!userId) { return null }
+
     let listItem;
     if (type === "text") {
         listItem = <PostText post={post} deletePost={deletePost} userId={userId} />
@@ -34,4 +36,3 @@ const PostItem = ({ post, userId, loadPosts }) => {
     )
 }
 export default PostItem;
-

@@ -28,6 +28,5 @@ class ValidationService {
         return email.match(re) !== null;
     }
 }
-
 export const validateService = new ValidationService();
 
