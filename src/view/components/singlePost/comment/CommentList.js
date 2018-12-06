@@ -18,7 +18,6 @@ class CommentList extends Component {
         }
         this.loadComments = this.loadComments.bind(this);
         this.loadUsers = this.loadUsers.bind(this);
-        this.getComments = this.getComments.bind(this);
     }
 
     loadComments() {
@@ -37,43 +36,12 @@ class CommentList extends Component {
                 })
             })
     }
-    getComments() {
-        const userComments = this.state.users.filter((user) => {
-            const comments = this.state.comments;
-            let valid;
-            for (let i = 0; i < comments.length; i++) {
-                const comment = comments[i];
-                valid = comment.authorId === user.id
-                if (valid) { break }
-            }
-            return valid
-        })
-        this.setState({
-            commentUsers: userComments
-        })
-    }
-    displayComments() {
-        const commentPromise = this.loadComments();
-        const userPromise = this.loadUsers();
-        Promise.all([commentPromise, userPromise])
-            .then(() => {
-                this.getComments();
-            })
-    }
 
     componentDidMount() {
-        this.displayComments();
-    }
+        this.loadComments();
+        this.loadUsers();
 
-    componentDidUpdate() {
-        if (this.state.comments.length > 0 && this.state.isFirstComment) {
-            this.displayComments();
-            this.setState({
-                isFirstComment: false
-            })
-        }
     }
-
     render() {
         if (!this.state.comments.length) {
             return (
@@ -84,7 +52,7 @@ class CommentList extends Component {
             )
         }
         const commentItem = this.state.comments.map((comment) => {
-            return <CommentItem key={comment.id} comment={comment} users={this.state.commentUsers} />
+            return <CommentItem key={comment.id} comment={comment} users={this.state.users} />
         })
         return (
             <>
