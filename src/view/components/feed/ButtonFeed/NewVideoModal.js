@@ -66,25 +66,16 @@ class NewVideoModal extends Component {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLongTitle">New video post</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"
-                            onClick={this.props.closeModal} >
+                        <button type="button" className="close" onClick={this.props.closeModal} data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
-                        <p>Video link</p>
-                        <input type="text" className="col-12 pl-1"
-                            onKeyPress={this.onKeyPress}
-                            onChange={this.changeInput}
-                            value={this.state.inputValue}
-                        />
+                        <input onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" placeholder="Please enter YouTube link..." className="modal-input col-12 pl-1" />
                         {this.state.error ? <p className="text-danger mt-1">Please enter valid YouTube link.</p> : null}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary"
-                            onClick={this.collectVideoInput}
-                            disabled={this.state.validInput} >POST
-                        </button>
+                        <button type="button" onClick={this.collectVideoInput} disabled={this.state.validInput} className="btn btn-primary">POST</button>
                     </div>
                 </div>
             </div>
