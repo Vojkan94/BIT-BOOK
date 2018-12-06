@@ -56,3 +56,16 @@
   .buttonText{
     font-size: 20px;
   }
+
+  .modal-input{
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 40px;
+    color: lightgray;
+  }
+  .modal-input-text{
+    height: 100px;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: lightgray;
+  }
