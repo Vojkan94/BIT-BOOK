@@ -1,4 +1,5 @@
 import React from 'react';
+
 import dateFormat from './../../../shared/dateFormat';
 
 import './css/people.css'
@@ -17,5 +18,4 @@ const UserItem = ({ user }) => {
         </div>
     )
 }
-
-export default UserItem
+export default UserItem;

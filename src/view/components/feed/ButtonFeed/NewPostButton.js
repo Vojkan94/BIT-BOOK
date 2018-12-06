@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+
 import buttonAnimation from './../../../../shared/buttonAnimation'
-import { ModalFeed } from './ModalFeed';
+import ModalFeed from './ModalFeed';
 
 import './NewPostButton.css'
-import 'font-awesome/css/font-awesome.min.css';
-
 
 class NewPostButton extends Component {
     constructor(props) {
@@ -13,16 +12,18 @@ class NewPostButton extends Component {
             open: false,
             modalType: ""
         }
+        this.openModal = this.openModal.bind(this)
+        this.closeModal = this.closeModal.bind(this)
         this.onClickModal = this.onClickModal.bind(this)
     }
 
-    openModal = (type) => {
+    openModal(type) {
         this.setState({
             open: true,
             modalType: type
         })
     }
-    closeModal = () => {
+    closeModal() {
         this.setState({
             open: false
         })
@@ -32,13 +33,10 @@ class NewPostButton extends Component {
             this.openModal(type);
         }
     }
-
     componentDidMount() {
         buttonAnimation();
     }
-
     render() {
-
         return (
             <>
                 <div className="backdrop"></div>
@@ -67,8 +65,4 @@ class NewPostButton extends Component {
         )
     }
 }
-
-
-
-
-export { NewPostButton }
+export default NewPostButton;

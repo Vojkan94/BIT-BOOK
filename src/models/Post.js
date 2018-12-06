@@ -9,7 +9,4 @@ class Post {
         this.commentsNum = commentsNum;
     }
 }
-
-
-
 export default Post;

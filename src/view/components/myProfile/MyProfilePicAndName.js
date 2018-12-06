@@ -11,4 +11,4 @@ const MyProfilePicAndName = ({ img, name }) => {
         </div>
     )
 }
-export { MyProfilePicAndName };
+export default MyProfilePicAndName;

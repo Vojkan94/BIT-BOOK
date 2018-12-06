@@ -35,7 +35,6 @@ class WelcomeList extends Component {
             message: 'You are successfully registration, please log in now'
         })
     }
-
     render() {
         const isActiveLogin = this.state.loginActive ? 'active' : '';
         const isActiveRegister = this.state.registerActive ? 'active' : '';

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import PostItem from './PostItem';
-import PostFilter from './PostFilter';
-import ScreenLoading from '../ScreenLoading/ScreenLoading';
 
 import { postService } from '../../../services/postService';
 import { userService } from '../../../services/userService';
-import { NewPostButton } from "./../feed/ButtonFeed/NewPostButton"
+
+import PostItem from './PostItem';
+import PostFilter from './PostFilter';
+import ScreenLoading from '../ScreenLoading/ScreenLoading';
+import NewPostButton from './../feed/ButtonFeed/NewPostButton';
+
 
 
 class PostList extends Component {
@@ -68,5 +70,4 @@ class PostList extends Component {
         )
     }
 }
-
 export default PostList;

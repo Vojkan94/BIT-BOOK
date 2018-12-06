@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { userService } from '../../../services/userService';
 
-import history from '../../../shared/history.js'
+import history from '../../../shared/history.js';
 
 
 class WelcomeLogin extends Component {
@@ -27,7 +27,6 @@ class WelcomeLogin extends Component {
             passwordInput: event.target.value
         })
     }
-
     loginUser() {
         const inputData = {
             'username': this.state.usernameInput,
@@ -83,5 +82,4 @@ class WelcomeLogin extends Component {
         )
     }
 }
-
-export default WelcomeLogin
+export default WelcomeLogin;

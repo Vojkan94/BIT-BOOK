@@ -2,7 +2,6 @@ import React from 'react';
 
 import './css/MyProfile.css'
 
-
 const EditProfileButton = ({ openModal }) => {
     return (
         <div className="text-center mb-4">
@@ -13,4 +12,4 @@ const EditProfileButton = ({ openModal }) => {
 
     )
 }
-export { EditProfileButton }
+export default EditProfileButton;

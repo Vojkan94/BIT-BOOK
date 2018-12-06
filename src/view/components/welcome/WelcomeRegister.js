@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { userService } from '../../../services/userService';
 import { validateService } from '../../../services/validationService';
 
@@ -6,10 +7,10 @@ class WelcomeRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameInput: "",
-            userNameInput: "",
-            emailInput: "",
-            passwordInput: "",
+            nameInput: '',
+            userNameInput: '',
+            emailInput: '',
+            passwordInput: '',
             errorName: false,
             errorUserName: false,
             errorEmail: false,
@@ -18,7 +19,6 @@ class WelcomeRegister extends Component {
             isUserValid: false,
             isEmailValid: false,
             isPassValid: false,
-
         }
         this.changeNameInput = this.changeNameInput.bind(this);
         this.changeUsernameInput = this.changeUsernameInput.bind(this);
@@ -26,7 +26,6 @@ class WelcomeRegister extends Component {
         this.changePasswordInput = this.changePasswordInput.bind(this);
         this.registerUser = this.registerUser.bind(this);
     }
-
     changeNameInput(event) {
         const valid = validateService.validateRegister(event.target.value);
         this.setState({
@@ -43,7 +42,7 @@ class WelcomeRegister extends Component {
             isUserValid: !valid
         })
     }
-    changeEmailInput = (event) => {
+    changeEmailInput(event){
         const valid = validateService.validateEmail(event.target.value);
         this.setState({
             emailInput: event.target.value,
@@ -59,8 +58,7 @@ class WelcomeRegister extends Component {
             isPassValid: !valid
         })
     }
-    registerUser = () => {
-
+    registerUser(){
         const inputData = {
             'username': this.state.usernameInput,
             'password': this.state.passwordInput,

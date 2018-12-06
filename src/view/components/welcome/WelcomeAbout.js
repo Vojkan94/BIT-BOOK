@@ -12,5 +12,4 @@ const WelcomeAbout = () => {
         </div>
     )
 }
-
-export default WelcomeAbout
+export default WelcomeAbout;

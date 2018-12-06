@@ -17,9 +17,7 @@ class UserSearch extends Component {
             inputValue
         });
         this.props.onChangeSearch(inputValue);
-
     };
-
     render() {
         return (
             <div className="container input-group search-input mb-3 col-12 col-md-10 col-lg-8">
@@ -31,5 +29,4 @@ class UserSearch extends Component {
         );
     }
 }
-
 export default UserSearch;

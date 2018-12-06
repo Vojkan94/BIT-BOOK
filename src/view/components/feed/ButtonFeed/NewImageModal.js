@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+
 import { postService } from '../../../../services/postService'
 import { validateService } from '../../../../services/validationService';
 
@@ -14,7 +15,6 @@ class NewImageModal extends Component {
         this.changeInput = this.changeInput.bind(this);
         this.collectImageInput = this.collectImageInput.bind(this);
     }
-
     changeInput(event) {
         this.setState({
             inputValue: event.target.value
@@ -31,7 +31,6 @@ class NewImageModal extends Component {
         const type = 'ImagePosts';
 
         const inputData = {
-
             "imageUrl": inputVal,
             "dateCreated": new Date(),
             "userId": 0,
@@ -39,7 +38,6 @@ class NewImageModal extends Component {
             "type": "image"
 
         }
-
         postService.postData(type, inputData)
             .then((response) => {
                 if (response === true) {
@@ -47,10 +45,8 @@ class NewImageModal extends Component {
                     this.props.loadPosts();
                 }
             })
-
     }
     onKeyPress = (event) => {
-
         if (event.key === 'Enter') {
             if (!this.state.validInput) {
                 this.collectImageInput();
@@ -58,7 +54,6 @@ class NewImageModal extends Component {
         }
     }
     render() {
-
         return (
             <Fragment>
                 <div className="modal-dialog">
@@ -83,6 +78,4 @@ class NewImageModal extends Component {
         );
     };
 }
-
-
-export { NewImageModal }
+export default NewImageModal;

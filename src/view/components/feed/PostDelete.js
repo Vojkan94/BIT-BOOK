@@ -1,5 +1,6 @@
 import React from 'react';
-import './css/PostDelete.css'
+
+import './css/PostDelete.css';
 
 const PostDelete = ({ deletePost }) => {
     return (
@@ -8,5 +9,4 @@ const PostDelete = ({ deletePost }) => {
         </button>
     )
 }
-
-export default PostDelete
+export default PostDelete;

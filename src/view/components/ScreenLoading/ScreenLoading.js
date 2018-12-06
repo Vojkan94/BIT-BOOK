@@ -1,5 +1,6 @@
 import React from "react";
-import './ScreenLoading.css'
+
+import './ScreenLoading.css';
 
 const ScreenLoading = () => {
     return (
