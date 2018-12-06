@@ -64,8 +64,7 @@ class NewTextModal extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>Text</p>
-                            <input onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
+                            <textarea onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" placeholder="Please enter text..." className="modal-input-text col-12 pl-1" ></textarea>
                             {this.state.error ? <p className="text-danger mt-1">Text can't include special characters.</p> : null}
                         </div>
                         <div className="modal-footer">

@@ -70,8 +70,7 @@ class NewVideoModal extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>Video link</p>
-                            <input onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" className="col-12 pl-1" />
+                            <input onKeyPress={this.onKeyPress} onChange={this.changeInput} value={this.state.inputValue} type="text" placeholder="Please enter YouTube link..." className="modal-input col-12 pl-1" />
                             {this.state.error ? <p className="text-danger mt-1">Please enter valid YouTube link.</p> : null}
                         </div>
                         <div className="modal-footer">

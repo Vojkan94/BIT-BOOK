@@ -10,7 +10,8 @@
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    border: 2px solid #fff;
+    border: 2px solid #48b5f9;
+    background-color: #162643;
 }
 .profile-header h3{
     color: white;
