@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 import { userService } from '../../../services/userService';
 
 import UserItem from './UserItem';
@@ -7,9 +8,7 @@ import UserSearch from './UserSearch';
 import NoResults from './UserSearchNoResults';
 import ScreenLoading from '../ScreenLoading/ScreenLoading';
 
-
 import './css/people.css'
-
 
 class UserList extends Component {
     constructor(props) {

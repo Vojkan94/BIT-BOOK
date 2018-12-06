@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { userService } from '../../../services/userService';
 
 class EditProfileModal extends Component {
@@ -57,9 +58,8 @@ class EditProfileModal extends Component {
             "avatarUrl": link,
             "email": this.props.user.email
         }
-
         userService.editUserProfile(inputData)
-            .then((response) => {
+            .then(() => {
                 this.props.closeModal();
                 this.props.fetchData();
             })
@@ -104,5 +104,4 @@ class EditProfileModal extends Component {
         )
     }
 }
-
-export { EditProfileModal }
+export default EditProfileModal;

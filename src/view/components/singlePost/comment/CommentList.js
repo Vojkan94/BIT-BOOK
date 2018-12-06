@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import CommentItem from './CommentItem';
-import CommentInput from './CommentInput';
+
 import { postService } from '../../../../services/postService';
 import { userService } from '../../../../services/userService';
-import { resolve } from 'path';
+
+import CommentItem from './CommentItem';
+import CommentInput from './CommentInput';
 
 class CommentList extends Component {
     constructor(props) {
@@ -13,12 +14,14 @@ class CommentList extends Component {
             comments: [],
             users: [],
             commentUsers: [],
-
+            isFirstComment: true
         }
-
+        this.loadComments = this.loadComments.bind(this);
+        this.loadUsers = this.loadUsers.bind(this);
+        this.getComments = this.getComments.bind(this);
     }
-    loadComments = () => {
 
+    loadComments() {
         return postService.fetchComments(this.props.postId)
             .then((comments) => {
                 this.setState({
@@ -26,11 +29,7 @@ class CommentList extends Component {
                 })
             })
     }
-
-
-
-
-    loadUsers = () => {
+    loadUsers() {
         return userService.fetchUsers()
             .then((users) => {
                 this.setState({
@@ -38,10 +37,7 @@ class CommentList extends Component {
                 })
             })
     }
-
-
-
-    getComments = () => {
+    getComments() {
         const userComments = this.state.users.filter((user) => {
             const comments = this.state.comments;
             let valid;
@@ -56,17 +52,27 @@ class CommentList extends Component {
             commentUsers: userComments
         })
     }
-    componentDidMount() {
+    displayComments() {
         const commentPromise = this.loadComments();
         const userPromise = this.loadUsers();
-
         Promise.all([commentPromise, userPromise])
-            .then((values) => {
+            .then(() => {
                 this.getComments();
             })
-
     }
 
+    componentDidMount() {
+        this.displayComments();
+    }
+
+    componentDidUpdate() {
+        if (this.state.comments.length > 0 && this.state.isFirstComment) {
+            this.displayComments();
+            this.setState({
+                isFirstComment: false
+            })
+        }
+    }
 
     render() {
         if (!this.state.comments.length) {

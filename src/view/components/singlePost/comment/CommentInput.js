@@ -5,11 +5,12 @@ class CommentInput extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            changeInput: "",
+            changeInput: '',
             isDisabled: true,
         }
-        this.handlerChange = this.handlerChange.bind(this)
-        this.postComment = this.postComment.bind(this)
+        this.handlerChange = this.handlerChange.bind(this);
+        this.postComment = this.postComment.bind(this);
+        this.onKeyPress = this.onKeyPress.bind(this);
     }
     handlerChange(event) {
         const disabled = event.target.value ? false : true;
@@ -20,10 +21,10 @@ class CommentInput extends Component {
     }
     postComment() {
         const inputData = {
-            "body": this.state.changeInput,
-            "postId": this.props.postId,
+            'body': this.state.changeInput,
+            'postId': this.props.postId,
         }
-        postService.postComment("comments", inputData)
+        postService.postComment('comments', inputData)
             .then((response) => {
                 if (response) {
                     this.props.loadComments();
@@ -34,14 +35,11 @@ class CommentInput extends Component {
             changeInput: ''
         })
     }
-
-    onKeyPress = (event) => {
+    onKeyPress(event) {
         if (event.key === 'Enter') {
             this.postComment();
         }
     }
-
-
     render() {
         return (
             <div className="m-auto row">
@@ -52,5 +50,4 @@ class CommentInput extends Component {
     }
 
 }
-
 export default CommentInput;

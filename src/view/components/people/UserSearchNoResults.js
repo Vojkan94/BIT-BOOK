@@ -1,5 +1,6 @@
 import React from 'react';
-import "./css/SearchNoResults.css";
+
+import './css/SearchNoResults.css';
 
 const NoResults = () => {
     return (
@@ -11,5 +12,4 @@ const NoResults = () => {
         </main>
     )
 }
-
 export default NoResults;

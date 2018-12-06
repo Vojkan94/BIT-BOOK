@@ -9,7 +9,7 @@ const dateFormat = (datePost) => {
         let hour = date.getHours();
         let min = date.getMinutes();
         if (min.toString().length === 1) {
-            min = `${min}0`
+            min = `0${min}`
         }
         return `Last post at ${hour}:${min}`
     } else {
@@ -17,7 +17,7 @@ const dateFormat = (datePost) => {
         let hour = date.getHours();
         let min = date.getMinutes();
         if (min.toString().length === 1) {
-            min = `${min}0`
+            min = `0${min}`
         }
         return `Last post at ${dateOfPost} - ${hour}:${min}`
     }

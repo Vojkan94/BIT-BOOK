@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import { MyProfilePicAndName } from './MyProfilePicAndName';
-import { MyProfileDesc } from './MyProfileDesc';
-import { MyProfileCount } from './MyProfileCount';
 import { userService } from '../../../services/userService';
+
+import MyProfilePicAndName from './MyProfilePicAndName';
+import MyProfileDesc from './MyProfileDesc';
+import MyProfileCount from './MyProfileCount';
 
 import './css/MyProfile.css'
 
@@ -34,5 +35,4 @@ class UserProfile extends Component {
         )
     }
 }
-
 export default UserProfile;

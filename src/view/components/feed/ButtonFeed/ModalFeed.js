@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { NewImageModal } from './NewImageModal';
-import { NewTextModal } from './NewTextModal';
-import { NewVideoModal } from './NewVideoModal';
+import NewImageModal from './NewImageModal';
+import NewTextModal from './NewTextModal';
+import NewVideoModal from './NewVideoModal';
 
-const ModalFeed = ({ closeModal, open, user, type, loadPosts }) => {
+const ModalFeed = ({ closeModal, open, type, loadPosts }) => {
     const showHideClassName = open ? 'modal display-block' : 'modal display-none';
     let ChosenModal;
     switch (type) {
@@ -26,5 +26,4 @@ const ModalFeed = ({ closeModal, open, user, type, loadPosts }) => {
         </div>
     )
 }
-
-export { ModalFeed }
+export default ModalFeed;

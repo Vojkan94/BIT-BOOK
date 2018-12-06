@@ -12,9 +12,7 @@ const WelcomePage = () => {
                 <WelcomeAbout />
                 <WelcomeList />
             </div>
-
         </>
     )
 }
-
-export default WelcomePage
+export default WelcomePage;

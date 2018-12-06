@@ -1,5 +1,6 @@
 import React from 'react';
-import './css/PostFilter.css'
+
+import './css/PostFilter.css';
 
 const PostFilter = ({ changeHandler }) => (
     <select className="form-control mt-2 filter" onChange={changeHandler} >
@@ -9,5 +10,4 @@ const PostFilter = ({ changeHandler }) => (
         <option value="video">Video posts</option>
     </select>
 )
-
 export default PostFilter;

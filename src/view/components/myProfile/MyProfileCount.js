@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const MyProfileCount = ({ commentsCount, postsCount }) => {
     return (
         <div className="row mt-4">
@@ -15,5 +14,4 @@ const MyProfileCount = ({ commentsCount, postsCount }) => {
         </div>
     )
 }
-
-export { MyProfileCount }
+export default MyProfileCount;

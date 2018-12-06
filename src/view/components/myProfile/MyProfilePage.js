@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { userService } from '../../../services/userService';
 
-import { Modal } from './Modal';
-import { MyProfilePicAndName } from './MyProfilePicAndName';
-import { MyProfileDesc } from './MyProfileDesc';
-import { MyProfileCount } from './MyProfileCount';
-import { EditProfileButton } from './EditProfileButton';
+import Modal from './Modal';
+import MyProfilePicAndName from './MyProfilePicAndName';
+import MyProfileDesc from './MyProfileDesc';
+import MyProfileCount from './MyProfileCount';
+import EditProfileButton from './EditProfileButton';
 
 class MyProfile extends Component {
     constructor(props) {
@@ -18,7 +18,6 @@ class MyProfile extends Component {
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
-
     componentDidMount() {
         this.fetchData();
     }
@@ -38,7 +37,6 @@ class MyProfile extends Component {
             open: false
         })
     }
-
     render() {
         if (!this.state.user) { return null }
         const { user } = this.state;

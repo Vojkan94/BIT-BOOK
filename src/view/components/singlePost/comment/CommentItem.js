@@ -2,7 +2,6 @@ import React from 'react';
 
 import './css/Comment.css'
 
-
 const CommentItem = ({ comment, users }) => {
     let userImg;
     for (let i = 0; i < users.length; i++) {
@@ -11,7 +10,6 @@ const CommentItem = ({ comment, users }) => {
             userImg = user.img
             break;
         }
-
     }
     return (
         <div className="comment-item">
@@ -22,6 +20,5 @@ const CommentItem = ({ comment, users }) => {
             </div>
         </div>
     )
-    // https://www.w3schools.com/w3css/img_avatar3.png"
 }
 export default CommentItem;

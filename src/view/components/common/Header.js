@@ -23,11 +23,8 @@ const Header = () => {
                         </ul>
                     </div>
                     : null}
-
-
             </div>
         </header>
     )
 }
-
-export default Header
+export default Header;

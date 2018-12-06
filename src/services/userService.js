@@ -2,7 +2,6 @@ import User from '../models/User';
 import { apiService } from './apiService';
 
 class UserService {
-
     fetchUsers() {
         return apiService.get('users')
             .then((userObj) => userObj.map((user) => {
@@ -10,7 +9,6 @@ class UserService {
                 return new User(id, name, aboutShort, lastPostDate, avatarUrl);
             }))
     };
-
     fetchMyProfile() {
         return apiService.get('profile')
             .then(((user) => {
@@ -43,5 +41,4 @@ class UserService {
         return apiService.authSystem('login', inputData);
     }
 }
-
 export const userService = new UserService();

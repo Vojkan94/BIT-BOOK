@@ -13,5 +13,4 @@ const MyProfileDesc = ({ about }) => {
     )
 }
 
-
-export { MyProfileDesc }
+export default MyProfileDesc;

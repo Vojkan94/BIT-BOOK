@@ -1,5 +1,6 @@
 import React from 'react';
-import { EditProfileModal } from './EditProfileModal';
+
+import EditProfileModal from './EditProfileModal';
 
 const Modal = ({ closeModal, open, user, fetchData }) => {
     const showHideClassName = open ? "modal display-block" : "modal display-none";
@@ -9,5 +10,4 @@ const Modal = ({ closeModal, open, user, fetchData }) => {
         </div>
     )
 }
-
-export { Modal }
+export default Modal;
