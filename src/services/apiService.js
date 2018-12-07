@@ -1,10 +1,10 @@
 import { BITBOOK_API_BASE_URL } from '../shared/constants';
 
 const headers = {
-        'Content-Type': 'application/json',
-        'Key': 'bitbookdev',
-        'SessionId': sessionStorage.getItem('sessionId')
-    }
+    'Content-Type': 'application/json',
+    'Key': 'bitbookdev',
+    'SessionId': sessionStorage.getItem('sessionId')
+}
 
 class ApiService {
     get(queryString) {
