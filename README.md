@@ -14,6 +14,6 @@ DEMO : [BITBOOK](http://bit-book.vojkantrojanovic.com)
 
 # Stack
 
-    Language:   HTML5, CSS3, JS(ES6+)
-    Library:  React, Bootstrap
-    Package Manager:  Yarn
+    Language: HTML5, CSS3, JS(ES6+)
+    Library: React, Bootstrap
+    Package Manager: Yarn
