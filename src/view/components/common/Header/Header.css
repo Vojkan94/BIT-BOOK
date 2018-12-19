@@ -1,0 +1,17 @@
+.nav{   
+    background-color: #162643;
+}
+.nav-logo{
+    background-color: #48b5f9;
+}
+.nav-link-header{
+    color: #ffffff!important;
+    text-align: center;
+}
+
+.nav-item :hover{
+    color: #48b5f9!important;
+}
+.nav-icon{
+    margin-left: 10px;
+}

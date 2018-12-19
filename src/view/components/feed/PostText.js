@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PostCountComment from './PostCountComment';
 import PostDelete from './PostDelete';
 
-import './css/PostText.css'
+import './PostText.css'
 
 
 const PostText = ({ post, deletePost, userId }) => {

@@ -40,7 +40,7 @@ class WelcomeList extends Component {
         const isActiveRegister = this.state.registerActive ? 'active' : '';
         const isSuccess = !this.state.message ? 'd-none' : '';
         return (
-            <div className="col-5">
+            <div>
                 <div className={`alert alert-success ${isSuccess}`} role="alert">
                     {this.state.message}
                 </div>
@@ -54,7 +54,6 @@ class WelcomeList extends Component {
                     <WelcomeLogin isActive={this.state.loginActive} />
                     <WelcomeRegister isActive={this.state.registerActive} loginBtn={this.loginBtn} successRegister={this.successRegister} />
                 </div>
-
             </div>
         )
     }

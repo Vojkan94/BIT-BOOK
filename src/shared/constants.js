@@ -1,1 +1,1 @@
-export const BITBOOK_API_BASE_URL = "http://bitbookapi.azurewebsites.net/api";
+export const BITBOOK_API_BASE_URL = "https://bitbookapi.azurewebsites.net/api";

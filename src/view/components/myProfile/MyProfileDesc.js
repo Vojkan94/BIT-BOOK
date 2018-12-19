@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/MyProfile.css'
+import './MyProfileDesc.css'
 
 const MyProfileDesc = ({ about }) => {
     return (
@@ -12,5 +12,4 @@ const MyProfileDesc = ({ about }) => {
         </div>
     )
 }
-
 export default MyProfileDesc;

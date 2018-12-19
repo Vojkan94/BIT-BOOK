@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './css/people.css'
+import './UserSearch.css';
 
 class UserSearch extends Component {
     constructor(props) {

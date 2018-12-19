@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/Comment.css'
+import './CommentItem.css'
 
 const CommentItem = ({ comment, users }) => {
     let userImg;
@@ -12,8 +12,8 @@ const CommentItem = ({ comment, users }) => {
         }
     }
     return (
-        <div className="comment-item">
-            <div className="clearFix">
+        <div className="comment-item text-left">
+            <div className="clearfix">
                 <img src={userImg} alt="profile" />
                 <h4>{comment.authorName}</h4>
                 <p className="">{comment.body}</p>

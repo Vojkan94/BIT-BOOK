@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/MyProfile.css'
+import './MyProfilePicAndName.css'
 
 
 const MyProfilePicAndName = ({ img, name }) => {

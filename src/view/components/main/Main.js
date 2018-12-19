@@ -5,7 +5,7 @@ import PostList from './../feed/PostList';
 import SinglePost from '../singlePost/SinglePost';
 import MyProfile from '../myProfile/MyProfilePage';
 import UserProfile from '../myProfile/UserProfile';
-import UserList from '../people/UserList';
+import UserList from '../user/UserList';
 import WelcomePage from '../welcome/WelcomePage';
 
 const Main = () => {

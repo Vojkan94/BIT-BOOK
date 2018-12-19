@@ -6,9 +6,7 @@ import { userService } from '../../../services/userService';
 import UserItem from './UserItem';
 import UserSearch from './UserSearch';
 import NoResults from './UserSearchNoResults';
-import ScreenLoading from '../ScreenLoading/ScreenLoading';
-
-import './css/people.css'
+import ScreenLoading from '../screenLoading/ScreenLoading';
 
 class UserList extends Component {
     constructor(props) {
@@ -42,7 +40,8 @@ class UserList extends Component {
         let userList;
         if (this.state.users.length) {
             userList = this.state.usersSearch.length
-                ? this.state.usersSearch.map((user) => <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
+                ? this.state.usersSearch.map((user) => 
+                <Link to={`profile/${user.id}`}><UserItem key={user.id} user={user} /></Link>)
                 : <NoResults />
         } else {
             userList = <ScreenLoading />
@@ -50,8 +49,8 @@ class UserList extends Component {
         return (
             <>
                 <UserSearch onChangeSearch={this.onChangeSearch} />
-                <div className='user-list'>
-                    {userList}
+                <div className="container col-12 col-md-10">
+                {userList}
                 </div>
             </>
         )

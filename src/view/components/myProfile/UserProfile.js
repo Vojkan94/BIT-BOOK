@@ -6,8 +6,6 @@ import MyProfilePicAndName from './MyProfilePicAndName';
 import MyProfileDesc from './MyProfileDesc';
 import MyProfileCount from './MyProfileCount';
 
-import './css/MyProfile.css'
-
 class UserProfile extends Component {
     constructor(props) {
         super(props);

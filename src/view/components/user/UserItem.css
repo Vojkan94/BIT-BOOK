@@ -1,0 +1,19 @@
+.user-item{
+    background-color: white;
+    border: 1px solid lightgray;
+    color: #73858e;
+}
+a {
+    text-decoration: none!important;
+}
+.user-item img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid #48b5f9;
+}
+.people-header h4{
+    color: #48b5f9;
+}
+.badge-primary{
+    background-color: #48b5f9 !important;
+}

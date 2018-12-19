@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/SearchNoResults.css';
+import './UserSearchNoResults.css';
 
 const NoResults = () => {
     return (

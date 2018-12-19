@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/PostFilter.css';
+import './PostFilter.css';
 
 const PostFilter = ({ changeHandler }) => (
     <select className="form-control mt-2 filter" onChange={changeHandler} >

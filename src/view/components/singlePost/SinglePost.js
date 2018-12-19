@@ -35,7 +35,7 @@ class SinglePost extends Component {
         if (!this.state.userId) { return null }
 
         return (
-            <div className="col-8 offset-md-2">
+            <div className="container col-12 col-md-10 col-lg-8">
                     <PostItem post={this.state.post} userId={this.state.userId} loadPosts={this.loadPosts} />
                     <CommentList postId={this.props.match.params.postId} />
             </div>

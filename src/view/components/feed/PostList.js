@@ -5,7 +5,7 @@ import { userService } from '../../../services/userService';
 
 import PostItem from './PostItem';
 import PostFilter from './PostFilter';
-import ScreenLoading from '../ScreenLoading/ScreenLoading';
+import ScreenLoading from '../screenLoading/ScreenLoading';
 import NewPostButton from './../feed/ButtonFeed/NewPostButton';
 
 
@@ -58,11 +58,11 @@ class PostList extends Component {
         return (
             <>
                 <div className="row">
-                    <div className="col-12 col-md-10 col-lg-8 offset-md-2">
-                        {postList}
-                    </div>
-                    <div className="col-2">
+                    <div className="offset-6 col-6 offset-md-8 col-md-4 offset-lg-10 col-lg-2">
                         <PostFilter changeHandler={this.changeHandler} />
+                    </div>
+                    <div className="col-12 offset-md-1 col-md-10 offset-md-2 col-lg-8 ">
+                        {postList}
                     </div>
                 </div>
                 <NewPostButton loadPosts={this.loadPosts} />

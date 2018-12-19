@@ -39,8 +39,9 @@ class WelcomeLogin extends Component {
                     this.setState({
                         error: ''
                     })
-                    history.push('/feed');
-                    history.go()
+                    // history.push('/Bit-Book/#/feed');
+                    // history.go()
+                    window.location.reload()
                 }
                 else {
                     this.setState({
