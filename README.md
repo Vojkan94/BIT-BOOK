@@ -10,7 +10,7 @@ The central page is feed, which shows posts by all users. Posts can be filtered 
 Users are allowed to create, delete and make a comment on posts. There is search function which allows users to find a another user.
 Profile has edit function, users can upload image from their PC.
  
-DEMO : [BITBOOK](https://bit-book.vojkantrojanovic.com) 
+DEMO : [BITBOOK](http://bit-book.vojkantrojanovic.com) 
 
 # Stack
 
